@@ -229,6 +229,22 @@ docker ps
 Expected output
 ![image](https://github.com/user-attachments/assets/481f48a9-dd23-4192-a4a1-f5b5c0fea001)
 
+Let's verify if we are able to SSH into the ubuntu1 ansible node container without password
+```
+ssh -p 2001 root@localhost
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/481f48a9-dd23-4192-a4a1-f5b5c0fea001)
+
+Let's verify if we are able to SSH into the ubuntu2 ansible node container without password
+```
+ssh -p 2002 root@localhost
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/7e33de38-ff90-452f-877f-298c59af5508)
+
 
 
 
