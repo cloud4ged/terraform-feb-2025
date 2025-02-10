@@ -353,6 +353,8 @@ ansible-playbook -i hosts install-nginx-playbook.yml
 
 Expected output
 ![image](https://github.com/user-attachments/assets/779ec180-1653-4414-9db7-b01d4a2ed7a6)
+![image](https://github.com/user-attachments/assets/9e527991-d465-40ff-adbe-8777bdf12ac5)
+![image](https://github.com/user-attachments/assets/0818636e-50a1-4b43-9c10-5145776dc6da)
 
 ## Lab - Getting help for ansible module
 ```
