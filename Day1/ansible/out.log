@@ -1,0 +1,5 @@
+Command 'dfsd' not found, did you mean:
+  command 'tfsd' from snap tfsd (0.0.2)
+  command 'afsd' from deb openafs-client (1.8.10-2.1ubuntu3.2)
+  command 'gfsd' from deb gfsd (2.7.20+dfsg-1build1)
+See 'snap info <snapname>' for additional versions.
