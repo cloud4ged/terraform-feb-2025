@@ -318,3 +318,16 @@ ansible -i inventory all -m ping
 
 Expected output
 ![image](https://github.com/user-attachments/assets/32e2394a-fa8b-4778-8e6b-37879762ac71)
+
+## Lab - Ansible Ad-hoc command to collect facts
+Ansible facts are ansible node(remote server) meta-data
+
+We can collects facts about the remote machines using setup module
+```
+ansible -i hosts ubuntu1 -m setup
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/a11ea182-10bb-4fd3-bf1d-32b4cc5311db)
+![image](https://github.com/user-attachments/assets/54424851-e492-426a-ae4c-9e9959c451aa)
+![image](https://github.com/user-attachments/assets/250786f9-7d51-40be-9450-526aa1e25fe5)
