@@ -93,3 +93,7 @@ Check if Terraform is installed
 terraform version
 ```
 
+Check if golang is installed
+```
+go version
+```
