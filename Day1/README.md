@@ -27,6 +27,16 @@
      - Ansible, Puppet, Chef are all declarative
 
 </pre>  
+## Info - Puppet/Chef Overview
+<pre>
+- configuration management tools
+- they are difficult to setup
+- steep learning curve
+- The DSL(Domain Specific Language - language used to automate) used by Puppet is Puppet's proprietary language
+- The DSL(Domain Specific Language - language used to automate) used by Chef is Ruby scripting language
+- they both follow client/server architecture
+- they both have proprietary agents that must be installed on the servers that needs to managed by Puppet/Chef
+</pre>
 
 ## Info - Ansible Overview
 <pre>
@@ -44,5 +54,7 @@
     - Cisco routers/switches
 - ansible is idempotent
   - no matter how many times you run the automation script, the outcome will be consistent
-- 
+- is agentless ( doesn't follow client/server achitectures )
+- it is a kind of stand-alone tool
+- follows PUSH architecture
 </pre>
