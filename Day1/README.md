@@ -193,7 +193,7 @@
 - it's a way we could package and distribute all the related playbooks, modules, plugins, etc in a single collection
 </pre>
 
-## Lab - Cloning TekTutor Training Repository
+## Lab - Cloning TekTutor Training Repository ( one time activity )
 ```
 git clone https://github.com/tektutor/terraform-feb-2025.git
 cd ~/terraform-feb-2025
