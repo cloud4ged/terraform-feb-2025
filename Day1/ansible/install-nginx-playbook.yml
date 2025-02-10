@@ -22,3 +22,18 @@
     when: (output.changed == true and ansible_distribution == "Ubuntu" and ansible_os_family == "Debian")
     service: name=nginx state=restarted
 
+- name: This play will test if nginx is working as expected
+  hosts: localhost
+  vars:
+  - machine_urls_tobe_tested:
+    - http://localhost:8001
+    - http://localhost:8002
+  tasks:
+  - name: Check if ansible node serves html pages
+    shell: "curl {{item}}"
+    with_list: "{{machine_urls_tobe_tested}}"
+    register: output
+
+  - debug: var=output
+
+
