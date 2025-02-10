@@ -283,11 +283,16 @@ First of all you need to delete ubuntu1 and ubuntu2 containers
 docker rm -f ubuntu1 ubuntu2  
 </pre>
 
+Update the know hosts
+```
+echo "" > ~/.ssh/known_hosts
+```
+
 Next, you need to rebuild the docker image after git pull
 ```
 cd ~/terraform-feb-2025
 git pull
-cd Day1/CustomDockerAnsibleNodeImages\ubuntu-ansible
+cd Day1/CustomDockerAnsibleNodeImages/ubuntu-ansible
 docker build -t tektutor/ubuntu-ansible-node:latest .
 docker images
 ```
