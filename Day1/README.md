@@ -215,4 +215,16 @@ Expected output
 ![image](https://github.com/user-attachments/assets/d8da70f2-542c-4ce0-9241-c8026e6f8377)
 ![image](https://github.com/user-attachments/assets/57f53d6f-68c7-4b86-8b9b-30f16d3dcfc8)
 
+## Lab - Let's create 2 containers using our custom docker image
+```
+docker run -d --name ubuntu1 --hostname ubuntu1 tektutor/ubuntu-ansible-node:latest
+docker run -d --name ubuntu2 --hostname ubuntu2 tektutor/ubuntu-ansible-node:latest
+```
+
+List the running containers
+```
+
+```
+
+
 
