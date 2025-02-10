@@ -193,6 +193,31 @@
 - it's a way we could package and distribute all the related playbooks, modules, plugins, etc in a single collection
 </pre>
 
+## Info - Linux Repository Server
+<pre>
+- it could be JFrog Artifactory or Sonatype Nexus or some FTP Servers
+- the repository servers maintains all the opensource compatible/tested softwares for each version of linux distributions
+- For instance, ubuntu has its own Repository server to host all the software packages that are supported by Ubuntu OS
+</pre>  
+
+## Info - Why Ubuntu 16.04 installs older version of Python, while Ubuntu 24.04 installs latest version of Python
+<pre>
+- the repository server url that comes by default with Ubuntu 16.04 points to python v3.5.2
+- the repository server url that comes by default with Ubuntu 24.04 points to python v3.6.x 
+</pre>  
+
+## Info - Linux Package Manager
+<pre>
+- it is a utility that helps installing/uninstalling/upgrading/downgrading softwares in Linux OS
+- package managers depends on repository servers to download and install softwares
+- the repository server urls are maintained in restricted folders like /etc/apt in case of Ubuntu
+- each Linux family supports a particular type of package manager
+- For instance,
+  - Ubuntu - uses apt(apt-get) package manager
+  - Fedora - uses rpm/yum/dnf package manager
+  - RHEL - uses rpm/yum/dnf package manager
+</pre>
+
 ## Lab - Cloning TekTutor Training Repository ( one time activity )
 ```
 git clone https://github.com/tektutor/terraform-feb-2025.git
