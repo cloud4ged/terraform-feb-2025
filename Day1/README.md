@@ -276,5 +276,40 @@ Expected output
 ![image](https://github.com/user-attachments/assets/7e33de38-ff90-452f-877f-298c59af5508)
 
 
+## Lab - Rebuilding Custom Docker Ansible node images
 
+First of all you need to delete ubuntu1 and ubuntu2 containers
+<pre>
+docker rm -f ubuntu1 ubuntu2  
+</pre>
 
+Next, you need to rebuild the docker image after git pull
+```
+cd ~/terraform-feb-2025
+git pull
+cd Day1/CustomDockerAnsibleNodeImages\ubuntu-ansible
+docker build -t tektutor/ubuntu-ansible-node:latest .
+docker images
+```
+
+Recreate, the ubuntu1 and ubuntu2 containers
+```
+docker run -d --name ubuntu1 --hostname ubuntu1 -p 2001:22 -p 8001:80 tektutor/ubuntu-ansible-node:latest
+docker run -d --name ubuntu2 --hostname ubuntu2 -p 2002:22 -p 8002:80 tektutor/ubuntu-ansible-node:latest
+```
+
+List the running containers
+```
+docker ps
+```
+
+See if ansible is able to communicate with the newly created ansible node containers
+```
+cd ~/terraform-feb-2025
+git pull
+cd Day1/ansible
+ansible -i inventory all -m ping
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/32e2394a-fa8b-4778-8e6b-37879762ac71)
