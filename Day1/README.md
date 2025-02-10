@@ -217,14 +217,17 @@ Expected output
 
 ## Lab - Let's create 2 containers using our custom docker image
 ```
-docker run -d --name ubuntu1 --hostname ubuntu1 tektutor/ubuntu-ansible-node:latest
-docker run -d --name ubuntu2 --hostname ubuntu2 tektutor/ubuntu-ansible-node:latest
+docker run -d --name ubuntu1 --hostname ubuntu1 -p 2001:22 -p 8001:80 tektutor/ubuntu-ansible-node:latest
+docker run -d --name ubuntu2 --hostname ubuntu2 -p 2002:22 -p 8002:80 tektutor/ubuntu-ansible-node:latest
 ```
+Expected output
+
 
 List the running containers
 ```
-
+docker ps
 ```
+Expected output
 
 
 
