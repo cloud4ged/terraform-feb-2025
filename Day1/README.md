@@ -283,7 +283,7 @@ First of all you need to delete ubuntu1 and ubuntu2 containers
 docker rm -f ubuntu1 ubuntu2  
 </pre>
 
-Update the know hosts
+Update the known hosts
 ```
 echo "" > ~/.ssh/known_hosts
 ```
