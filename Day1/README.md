@@ -216,6 +216,11 @@ Expected output
 ![image](https://github.com/user-attachments/assets/57f53d6f-68c7-4b86-8b9b-30f16d3dcfc8)
 
 ## Lab - Let's create 2 containers using our custom docker image
+Delete any container with name ubuntu1 and ubuntu2 in case they exists
+```
+docker rm -f ubuntu1 ubuntu2
+```
+
 Create two ansible node containers
 ```
 docker run -d --name ubuntu1 --hostname ubuntu1 -p 2001:22 -p 8001:80 tektutor/ubuntu-ansible-node:latest
