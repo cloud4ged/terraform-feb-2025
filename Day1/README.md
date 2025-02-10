@@ -337,7 +337,7 @@ Expected output
 cd ~/terraform-feb-2025
 git pull
 cd Day1/ansible
-ansible-playbook -i hosts all ping-playbook.yml
+ansible-playbook -i hosts ping-playbook.yml
 ```
 
 Expected output
