@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:latest
 MAINTAINER Jeganathan Swaminathan <jegan@tektutor.org>
 
 RUN apt-get update && apt-get install -y openssh-server python3
