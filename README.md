@@ -9,6 +9,8 @@
 </pre>
 
 ## Info - Installing Ansible core in Ubuntu
+Ansible core is already installed on the lab machine, hence this is just for your reference purpose.
+
 ```
 sudo apt update
 sudo apt install software-properties-common
@@ -17,6 +19,8 @@ sudo apt install ansible -y
 ```
 
 ## Info - Installing Docker Community Edition in Ubuntu
+
+Docker is already installed on the lab machine, hence this is just for your reference purpose.
 ```
 # Add Docker's official GPG key:
 sudo apt-get update
@@ -43,6 +47,8 @@ docker images
 ```
 
 ## Info - Installing Terraform in Ubuntu
+Terraform is already installed on the lab machine, hence this is just for your reference purpose.
+
 ```
 sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
 
