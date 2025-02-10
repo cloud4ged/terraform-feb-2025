@@ -366,8 +366,6 @@ Expected output
 ![image](https://github.com/user-attachments/assets/5e734eb3-a1b2-4b50-9bd5-f47a318ccf74)
 ![image](https://github.com/user-attachments/assets/1dade90e-a400-469a-b993-8318dc9560e9)
 
-
-
 ## Lab - Getting help for ansible module
 ```
 ansible-doc service
@@ -375,3 +373,20 @@ ansible-doc service
 
 Expected output
 ![image](https://github.com/user-attachments/assets/85635179-1fc9-4ef2-925f-3ada6bb0f6af)
+
+## Lab - Creating a custom ansible role to install nginx, configure nginx and deploy custom web page
+```
+ansible-galaxy init nginx
+```
+
+You could pull the role from github if you don't prefer doing it yourself
+```
+cd ~/terraform-feb-2025
+git pull
+cd Day1/ansible/roles
+tree
+```
+
+
+Expected output
+![image](https://github.com/user-attachments/assets/7998b670-dd9e-41b6-bd69-7513301ddd34)
