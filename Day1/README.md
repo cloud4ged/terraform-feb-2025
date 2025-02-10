@@ -193,7 +193,32 @@
 - it's a way we could package and distribute all the related playbooks, modules, plugins, etc in a single collection
 </pre>
 
-## Lab - Cloning TekTutor Training Repository
+## Info - Linux Repository Server
+<pre>
+- it could be JFrog Artifactory or Sonatype Nexus or some FTP Servers
+- the repository servers maintains all the opensource compatible/tested softwares for each version of linux distributions
+- For instance, ubuntu has its own Repository server to host all the software packages that are supported by Ubuntu OS
+</pre>  
+
+## Info - Why Ubuntu 16.04 installs older version of Python, while Ubuntu 24.04 installs latest version of Python
+<pre>
+- the repository server url that comes by default with Ubuntu 16.04 points to python v3.5.2
+- the repository server url that comes by default with Ubuntu 24.04 points to python v3.6.x 
+</pre>  
+
+## Info - Linux Package Manager
+<pre>
+- it is a utility that helps installing/uninstalling/upgrading/downgrading softwares in Linux OS
+- package managers depends on repository servers to download and install softwares
+- the repository server urls are maintained in restricted folders like /etc/apt in case of Ubuntu
+- each Linux family supports a particular type of package manager
+- For instance,
+  - Ubuntu - uses apt(apt-get) package manager
+  - Fedora - uses rpm/yum/dnf package manager
+  - RHEL - uses rpm/yum/dnf package manager
+</pre>
+
+## Lab - Cloning TekTutor Training Repository ( one time activity )
 ```
 git clone https://github.com/tektutor/terraform-feb-2025.git
 cd ~/terraform-feb-2025
@@ -203,9 +228,9 @@ cd ~/terraform-feb-2025
 ```
 cd ~/terraform-feb-2025
 git pull
-cd Day1/CustomDockerAnsibleNodeImages
+cd Day1/CustomDockerAnsibleNodeImages/ubuntu-ansible
 ssh-keygen
-cp ~/.ssh/id_ed25519 authorized_keys
+cp ~/.ssh/id_ed25519.pub authorized_keys
 docker build -t tektutor/ubuntu-ansible-node:latest .
 docker images
 ```
@@ -215,4 +240,76 @@ Expected output
 ![image](https://github.com/user-attachments/assets/d8da70f2-542c-4ce0-9241-c8026e6f8377)
 ![image](https://github.com/user-attachments/assets/57f53d6f-68c7-4b86-8b9b-30f16d3dcfc8)
 
+## Lab - Let's create 2 containers using our custom docker image
+Delete any container with name ubuntu1 and ubuntu2 in case they exists
+```
+docker rm -f ubuntu1 ubuntu2
+```
 
+Create two ansible node containers
+```
+docker run -d --name ubuntu1 --hostname ubuntu1 -p 2001:22 -p 8001:80 tektutor/ubuntu-ansible-node:latest
+docker run -d --name ubuntu2 --hostname ubuntu2 -p 2002:22 -p 8002:80 tektutor/ubuntu-ansible-node:latest
+```
+
+List the running containers
+```
+docker ps
+```
+Expected output
+![image](https://github.com/user-attachments/assets/481f48a9-dd23-4192-a4a1-f5b5c0fea001)
+
+Let's verify if we are able to SSH into the ubuntu1 ansible node container without password
+```
+ssh -p 2001 root@localhost
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/481f48a9-dd23-4192-a4a1-f5b5c0fea001)
+
+Let's verify if we are able to SSH into the ubuntu2 ansible node container without password
+```
+ssh -p 2002 root@localhost
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/7e33de38-ff90-452f-877f-298c59af5508)
+
+
+## Lab - Rebuilding Custom Docker Ansible node images
+
+First of all you need to delete ubuntu1 and ubuntu2 containers
+<pre>
+docker rm -f ubuntu1 ubuntu2  
+</pre>
+
+Next, you need to rebuild the docker image after git pull
+```
+cd ~/terraform-feb-2025
+git pull
+cd Day1/CustomDockerAnsibleNodeImages\ubuntu-ansible
+docker build -t tektutor/ubuntu-ansible-node:latest .
+docker images
+```
+
+Recreate, the ubuntu1 and ubuntu2 containers
+```
+docker run -d --name ubuntu1 --hostname ubuntu1 -p 2001:22 -p 8001:80 tektutor/ubuntu-ansible-node:latest
+docker run -d --name ubuntu2 --hostname ubuntu2 -p 2002:22 -p 8002:80 tektutor/ubuntu-ansible-node:latest
+```
+
+List the running containers
+```
+docker ps
+```
+
+See if ansible is able to communicate with the newly created ansible node containers
+```
+cd ~/terraform-feb-2025
+git pull
+cd Day1/ansible
+ansible -i inventory all -m ping
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/32e2394a-fa8b-4778-8e6b-37879762ac71)
