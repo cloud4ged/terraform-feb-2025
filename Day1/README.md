@@ -355,6 +355,11 @@ Expected output
 ![image](https://github.com/user-attachments/assets/779ec180-1653-4414-9db7-b01d4a2ed7a6)
 ![image](https://github.com/user-attachments/assets/9e527991-d465-40ff-adbe-8777bdf12ac5)
 ![image](https://github.com/user-attachments/assets/0818636e-50a1-4b43-9c10-5145776dc6da)
+![image](https://github.com/user-attachments/assets/4b8370ad-d7ec-4f11-bf3d-8c6a77b733f8)
+![image](https://github.com/user-attachments/assets/ba0dba20-2a20-45b9-afc2-37d2ed666ad4)
+![image](https://github.com/user-attachments/assets/35051b75-3c54-4444-9a19-44103e7626d7)
+![image](https://github.com/user-attachments/assets/5e734eb3-a1b2-4b50-9bd5-f47a318ccf74)
+![image](https://github.com/user-attachments/assets/1dade90e-a400-469a-b993-8318dc9560e9)
 
 ## Lab - Getting help for ansible module
 ```
