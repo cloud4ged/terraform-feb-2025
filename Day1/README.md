@@ -1,5 +1,10 @@
 # Day 1
 
+## Please provide your first day feedback
+```
+https://survey.zohopublic.com/zs/xafPLk
+```
+
 ## Info - Configuration Management Tool Overview
 <pre>
 - assuming we already have a machine with Windows/Linux/Mac pre-installed, we can automate configuration management on those machines
