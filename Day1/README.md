@@ -205,7 +205,7 @@ cd ~/terraform-feb-2025
 git pull
 cd Day1/CustomDockerAnsibleNodeImages
 ssh-keygen
-cp ~/.ssh/id_ed25519 authorized_keys
+cp ~/.ssh/id_ed25519.pub authorized_keys
 docker build -t tektutor/ubuntu-ansible-node:latest .
 docker images
 ```
