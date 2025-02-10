@@ -1,0 +1,24 @@
+- name: Install nginx web server via playbook
+  hosts: all
+  tasks:
+  - name: Install nginx in Ubuntu
+    when: (ansible_distribution == "Ubuntu" and ansible_os_family == "Debian")
+    apt: name=nginx state=latest update_cache=yes
+
+  - name: Create custom folder to place our web pages
+    when: (ansible_distribution == "Ubuntu" and ansible_os_family == "Debian")
+    file: path=/var/html  state=directory mode=0777
+
+  - name: Configure nginx to pick web page from our custom folder
+    copy: src=default dest=/etc/nginx/sites-available/default
+    register: output
+
+  - debug: var=output
+
+  - name: Deploy custom html page
+    copy: src=index.html dest=/var/html/index.html
+
+  - name: Restart nginx web server service to apply config changes
+    when: (output.changed == true and ansible_distribution == "Ubuntu" and ansible_os_family == "Debian")
+    service: name=nginx state=restarted
+
