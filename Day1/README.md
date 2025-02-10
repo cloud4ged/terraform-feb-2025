@@ -193,4 +193,25 @@
 - it's a way we could package and distribute all the related playbooks, modules, plugins, etc in a single collection
 </pre>
 
+## Lab - Cloning TekTutor Training Repository
+```
+git clone https://github.com/tektutor/terraform-feb-2025.git
+cd ~/terraform-feb-2025
+```
+
+## Lab - Let's create a custom ubuntu ansible node docker image
+```
+cd ~/terraform-feb-2025
+git pull
+cd Day1/CustomDockerAnsibleNodeImages
+ssh-keygen
+cp ~/.ssh/id_ed25519 authorized_keys
+docker build -t tektutor/ubuntu-ansible-node:latest .
+docker images
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/acd7f6a1-7c44-480a-a325-e18d206932f8)
+![image](https://github.com/user-attachments/assets/d8da70f2-542c-4ce0-9241-c8026e6f8377)
+
 
