@@ -342,3 +342,14 @@ ansible-playbook -i hosts ping-playbook.yml
 
 Expected output
 ![image](https://github.com/user-attachments/assets/d418342e-3c98-4e7f-af07-a9dfefbd9828)
+
+## Lab - Installing nginx web server via ansible playbook
+```
+cd ~/terraform-feb-2025
+git pull
+cd Day1/ansible
+ansible-playbook -i hosts install-nginx-playbook.yml
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/779ec180-1653-4414-9db7-b01d4a2ed7a6)
