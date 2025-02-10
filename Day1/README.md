@@ -331,3 +331,14 @@ Expected output
 ![image](https://github.com/user-attachments/assets/a11ea182-10bb-4fd3-bf1d-32b4cc5311db)
 ![image](https://github.com/user-attachments/assets/54424851-e492-426a-ae4c-9e9959c451aa)
 ![image](https://github.com/user-attachments/assets/250786f9-7d51-40be-9450-526aa1e25fe5)
+
+## Lab - Running your first ansible playbook
+```
+cd ~/terraform-feb-2025
+git pull
+cd Day1/ansible
+ansible-playbook -i hosts all ping-playbook.yml
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/d418342e-3c98-4e7f-af07-a9dfefbd9828)
