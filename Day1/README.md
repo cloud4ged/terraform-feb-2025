@@ -203,7 +203,7 @@ cd ~/terraform-feb-2025
 ```
 cd ~/terraform-feb-2025
 git pull
-cd Day1/CustomDockerAnsibleNodeImages
+cd Day1/CustomDockerAnsibleNodeImages/ubuntu-ansible
 ssh-keygen
 cp ~/.ssh/id_ed25519.pub authorized_keys
 docker build -t tektutor/ubuntu-ansible-node:latest .
