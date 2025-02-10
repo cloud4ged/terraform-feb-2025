@@ -353,3 +353,11 @@ ansible-playbook -i hosts install-nginx-playbook.yml
 
 Expected output
 ![image](https://github.com/user-attachments/assets/779ec180-1653-4414-9db7-b01d4a2ed7a6)
+
+## Lab - Getting help for ansible module
+```
+ansible-doc service
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/85635179-1fc9-4ef2-925f-3ada6bb0f6af)
