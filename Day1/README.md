@@ -332,6 +332,11 @@ Expected output
 ![image](https://github.com/user-attachments/assets/54424851-e492-426a-ae4c-9e9959c451aa)
 ![image](https://github.com/user-attachments/assets/250786f9-7d51-40be-9450-526aa1e25fe5)
 
+## Lab - Copying a file from docker container to local machine
+```
+docker cp ubuntu1:/etc/nginx/sites-available/default .
+```
+
 ## Lab - Running your first ansible playbook
 ```
 cd ~/terraform-feb-2025
@@ -360,6 +365,8 @@ Expected output
 ![image](https://github.com/user-attachments/assets/35051b75-3c54-4444-9a19-44103e7626d7)
 ![image](https://github.com/user-attachments/assets/5e734eb3-a1b2-4b50-9bd5-f47a318ccf74)
 ![image](https://github.com/user-attachments/assets/1dade90e-a400-469a-b993-8318dc9560e9)
+
+
 
 ## Lab - Getting help for ansible module
 ```
