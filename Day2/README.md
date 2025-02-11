@@ -229,3 +229,15 @@ Expected output
 ![image](https://github.com/user-attachments/assets/5ed32b65-ed8f-4f14-ba29-adf59cf6343c)
 ![image](https://github.com/user-attachments/assets/e4282f4d-acb6-412b-8399-33bc31a8c588)
 ![image](https://github.com/user-attachments/assets/fe4d4125-ff6a-4c25-a214-9303bc501b5d)
+
+## Info - Go basic types
+<pre>
+- bool
+- string
+- int, int8, int16, int32, int64
+- uint, uint8, uint16, uint32, uint64 uintptr
+- byte ( alias of uint8 )
+- rune ( alias for int32 - represents a unicode )
+- float32 float64
+- complex64 complex128
+</pre>
