@@ -197,3 +197,29 @@ ls
 
 Expected output
 ![image](https://github.com/user-attachments/assets/34f85c03-c50a-4922-b5a0-6b743ae15c5b)
+
+## Lab - Go variables
+
+Let's create file named variables.go with the below content
+<pre>
+package main
+
+import "fmt"
+
+func main() {
+   var name = "James Gosling"
+   fmt.Println(name)
+
+   var firstNumber, secondNumber int = 10, 20
+   fmt.Println( "Value of first number is ", firstNumber )
+   fmt.Println( "Value of second number is ", secondNumber )
+}  
+</pre>
+
+Let's run the program as
+```
+go run ./variables.go
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/1df67cf4-b862-4e12-9ed8-40822f97e86d)
