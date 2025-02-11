@@ -455,3 +455,43 @@ go run ./ifelse.go
 
 Expected output
 ![image](https://github.com/user-attachments/assets/ae94ab1b-b564-4cb4-b44e-6df45bd23e92)
+
+## Lab - Accepting inputs and using switch case statement
+
+Create a file named accepting-inputs.go with the below content
+<pre>
+package main
+import "fmt"
+
+func main() {
+	var direction string
+
+	//Valid values are east,west,north,south
+	fmt.Print ("Enter some direction : ")
+	fmt.Scanln(&direction)
+
+	switch direction {
+
+	case "east":
+		fmt.Println("You entered direction ", direction )
+	case "west":
+		fmt.Println("You entered direction ", direction )
+	case "south":
+		fmt.Println("You entered direction ", direction )
+	case "north":	
+		fmt.Println("You entered direction ", direction )
+	default:
+		fmt.Println("Invalid direction")
+
+	}
+
+}	
+</pre>
+
+Run the program
+```
+go run ./accepting-inputs.go
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/e356d0af-2d6b-4600-87f9-4cc6777a807d)
