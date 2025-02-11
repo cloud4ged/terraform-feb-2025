@@ -1,5 +1,10 @@
 # Day 1
 
+## Please provide your first day feedback
+```
+https://survey.zohopublic.com/zs/xafPLk
+```
+
 ## Info - Configuration Management Tool Overview
 <pre>
 - assuming we already have a machine with Windows/Linux/Mac pre-installed, we can automate configuration management on those machines
@@ -332,6 +337,11 @@ Expected output
 ![image](https://github.com/user-attachments/assets/54424851-e492-426a-ae4c-9e9959c451aa)
 ![image](https://github.com/user-attachments/assets/250786f9-7d51-40be-9450-526aa1e25fe5)
 
+## Lab - Copying a file from docker container to local machine
+```
+docker cp ubuntu1:/etc/nginx/sites-available/default .
+```
+
 ## Lab - Running your first ansible playbook
 ```
 cd ~/terraform-feb-2025
@@ -355,6 +365,11 @@ Expected output
 ![image](https://github.com/user-attachments/assets/779ec180-1653-4414-9db7-b01d4a2ed7a6)
 ![image](https://github.com/user-attachments/assets/9e527991-d465-40ff-adbe-8777bdf12ac5)
 ![image](https://github.com/user-attachments/assets/0818636e-50a1-4b43-9c10-5145776dc6da)
+![image](https://github.com/user-attachments/assets/4b8370ad-d7ec-4f11-bf3d-8c6a77b733f8)
+![image](https://github.com/user-attachments/assets/ba0dba20-2a20-45b9-afc2-37d2ed666ad4)
+![image](https://github.com/user-attachments/assets/35051b75-3c54-4444-9a19-44103e7626d7)
+![image](https://github.com/user-attachments/assets/5e734eb3-a1b2-4b50-9bd5-f47a318ccf74)
+![image](https://github.com/user-attachments/assets/1dade90e-a400-469a-b993-8318dc9560e9)
 
 ## Lab - Getting help for ansible module
 ```
@@ -363,3 +378,20 @@ ansible-doc service
 
 Expected output
 ![image](https://github.com/user-attachments/assets/85635179-1fc9-4ef2-925f-3ada6bb0f6af)
+
+## Lab - Creating a custom ansible role to install nginx, configure nginx and deploy custom web page
+```
+ansible-galaxy init nginx
+```
+
+You could pull the role from github if you don't prefer doing it yourself
+```
+cd ~/terraform-feb-2025
+git pull
+cd Day1/ansible/roles
+tree
+```
+
+
+Expected output
+![image](https://github.com/user-attachments/assets/7998b670-dd9e-41b6-bd69-7513301ddd34)
