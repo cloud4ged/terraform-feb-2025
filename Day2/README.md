@@ -416,3 +416,42 @@ go run ./calculator.go
 
 Expected output
 ![image](https://github.com/user-attachments/assets/fe01a04f-1079-49af-ae3d-9e2d1daf147d)
+
+
+## Lab - Understanding go if else contstruct
+Create a file named ifelse.go with the below content
+<pre>
+package main
+import "fmt"
+
+func compareString( str1, str2 string ) bool {
+	var result bool
+
+	if str1 == str2 {
+		result = true
+	} else {
+		result = false
+	}
+
+	return result
+}
+
+func main() {
+	str1 := "go"
+	str2 := "go"
+
+	fmt.Printf("%s and %s matching? : %v\n", str1, str2, compareString(str1,str2) )
+
+	str1 = "Go"
+	str2 = "go"
+	fmt.Printf("%s and %s matching? : %v\n", str1, str2, compareString(str1,str2) )
+}	
+</pre>
+
+Run the program
+```
+go run ./ifelse.go
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/ae94ab1b-b564-4cb4-b44e-6df45bd23e92)
