@@ -137,3 +137,9 @@ Click on "Add" button and select "Add job template"
 Click on "Save" button
 ![image](https://github.com/user-attachments/assets/83e1584d-307e-49d2-be3e-c2672076b6c8)
 
+To run the playbook, click the "Launch" button
+![image](https://github.com/user-attachments/assets/a8a73519-4b3a-49cc-bdb4-f244493f52e6)
+![image](https://github.com/user-attachments/assets/ec647343-d59b-4825-9255-8ca807223323)
+Click on "Launch" button
+![image](https://github.com/user-attachments/assets/96c62946-0777-4306-ba62-f7e667ec99d3)
+![image](https://github.com/user-attachments/assets/7b8d7fc0-dd68-4877-8624-69224836a673)
