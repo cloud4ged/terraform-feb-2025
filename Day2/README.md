@@ -169,3 +169,31 @@ go version
 
 Expected output
 ![image](https://github.com/user-attachments/assets/435162a2-fceb-4f9f-b177-de5bf497ead3)
+
+## Lab - Writing a hello program in go lang
+
+Create a file named hello.go with the below content
+<pre>
+package main
+
+import "fmt"
+
+func main() {
+  fmt.Println( "Hello Golang !" )
+}  
+</pre>
+
+To run your go program
+```
+go run ./hello.go
+```
+
+If you wish to build the hello.go to an exe that can be directly executed
+```
+go build ./hello.go
+ls
+./hello
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/34f85c03-c50a-4922-b5a0-6b743ae15c5b)
