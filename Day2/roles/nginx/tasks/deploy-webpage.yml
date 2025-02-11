@@ -1,0 +1,3 @@
+  - name: Deploy custom html page
+    copy: src=index.html dest=/var/html/index.html
+

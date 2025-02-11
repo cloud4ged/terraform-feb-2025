@@ -1,0 +1,17 @@
+- name: Create custom folder to place our web pages
+  file: path=/var/html  state=directory mode=0777
+  notify:
+  - Restart nginx web server service to apply config changes in Rocky
+
+- name: Configure nginx to pick web page from our custom folder
+  copy: src=nginx.conf dest=/etc/nginx/nginx.conf
+  notify:
+  - Restart nginx web server service to apply config changes in Rocky
+
+- name: Check if nginx server is already running in Rocky
+  shell: curl localhost
+  register: output
+  ignore_errors: yes
+
+- debug: var=output
+

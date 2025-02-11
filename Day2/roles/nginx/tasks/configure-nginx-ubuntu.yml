@@ -1,0 +1,9 @@
+- name: Create custom folder to place our web pages
+  file: path=/var/html  state=directory mode=0777
+  notify:
+  - Restart nginx web server service to apply config changes in Ubuntu
+
+- name: Configure nginx to pick web page from our custom folder
+  copy: src=default dest=/etc/nginx/sites-available/default
+  notify:
+  - Restart nginx web server service to apply config changes in Ubuntu

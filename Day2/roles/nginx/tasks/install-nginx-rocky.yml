@@ -1,0 +1,2 @@
+- name: Install nginx in Rocky 
+  yum: name=nginx state=latest
