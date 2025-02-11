@@ -146,3 +146,17 @@ Click on "Launch" button
 ![image](https://github.com/user-attachments/assets/ed5ff31d-6eae-4063-b053-98a1c7571992)
 ![image](https://github.com/user-attachments/assets/af34b233-0f4d-4c09-9c91-0fb0b61e2942)
 
+## Info - Golang overview
+<pre>
+- a programming developed and maintained by Google
+- popular tools like Docker, Kubernetes and Openshift were all developed using Go lang
+- its syntax resembles C language, originally developed in C/C++ but later rebuild using go lang
+- it is a compiled language
+- For example
+  - python is an interpretted language, where each line of code is interpretted while running the script
+  - golang source is compiled like C++ to its machine executable format, hence all the compiler errors are reported at one shot unlike python or any other interpretted programming language
+  - unlike C/C++, the memory management is handled by golang itself, it supports pointers like C/C++
+  - when golang source code is compiled, it is observed the compilation is faster than any interpretted programming languages like python, ruby, etc.,
+  - while golang compilation is slighly slower than C/C++
+  - golang pretty much can be used to develop system tools just like C/C++, while it also offer modern features like python
+</pre>
