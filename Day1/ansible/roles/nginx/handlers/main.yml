@@ -1,0 +1,5 @@
+---
+# handlers file for nginx
+- name: Restart nginx web server service to apply config changes
+  when: (output.changed == true and ansible_distribution == "Ubuntu" and ansible_os_family == "Debian")
+  service: name=nginx state=restarted
