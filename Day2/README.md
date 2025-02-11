@@ -54,3 +54,19 @@ Click "Save" button
 ![image](https://github.com/user-attachments/assets/47964725-b73d-466f-b865-3cc2d39f657a)
 ![image](https://github.com/user-attachments/assets/cd1c6d54-417c-4dfc-92e6-066cb1a8e0ab)
 
+## Lab - Let's create a credential in Ansible Tower to store the private key we generated
+
+Navigate to Resources --> Credentials
+![image](https://github.com/user-attachments/assets/59c2b03d-6c02-4fc0-b9df-a944ea598b6f)
+
+Click "Add" button
+![image](https://github.com/user-attachments/assets/6d9007c9-06d9-4d06-9e04-441b4ccf7420)
+![image](https://github.com/user-attachments/assets/09414934-4e19-4fdb-9d26-c433c951e630)
+![image](https://github.com/user-attachments/assets/dd1cae37-154a-4aaf-8727-62f91b06f80f)
+
+Click "Save" button
+![image](https://github.com/user-attachments/assets/d2d2503c-6d65-4f2a-9d4e-0e694e2b10a3)
+
+
+
+## Lab - Let's create an inventory in Ansible Tower
