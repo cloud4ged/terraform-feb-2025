@@ -149,6 +149,7 @@ Click on "Launch" button
 ## Info - Golang overview
 <pre>
 - a programming developed and maintained by Google
+- it is an open source progamming language
 - popular tools like Docker, Kubernetes and Openshift were all developed using Go lang
 - its syntax resembles C language, originally developed in C/C++ but later rebuild using go lang
 - it is a compiled language
