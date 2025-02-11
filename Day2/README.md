@@ -1,1 +1,145 @@
 # Day 2
+
+## Lab - Starting Ansible automation platform
+```
+minikube status
+minikube start
+kubectl get pods -n ansible-awx
+kubectl get svc -n ansible-awx
+minikube service awx-demo-service --url -n ansible-awx
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/8d5f02cf-75cd-43a6-a84d-f6ce776b9846)
+
+AWX Login Credentials
+```
+username - admin
+```
+
+To retrieve password
+```
+kubectl get secret -n ansible-awx | grep -i password
+kubectl get secret awx-demo-admin-password -o jsonpath="{.data.password}" -n ansible-awx | base64 --decode; echo
+```
+
+To access the awx dashboard from other machines, you need to do port-forwarding
+```
+kubectl port-forward service/awx-demo-service -n ansible-awx --address 0.0.0.0 10445:80 &> /dev/null &
+```
+
+You may now access the dashboard from other machines as
+```
+http://10.0.1.72:31225
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/3081631a-89f0-46cc-b84d-412c0ea41dd0)
+![image](https://github.com/user-attachments/assets/6c8a2104-c97f-4f74-80cd-d9adb6443dc0)
+
+
+## Lab - Creating a project in Ansible Tower
+Navigate to Resource --> Projects
+![image](https://github.com/user-attachments/assets/ee41a93c-96cc-44f5-b799-bc2913d25f2c)
+
+Click "Add" button
+![image](https://github.com/user-attachments/assets/0169dd9c-89c1-42d5-a006-9a99674b3f6a)
+Select "Git" under Source Control Type
+![image](https://github.com/user-attachments/assets/9d9b571c-dfa4-4a04-84e0-69aeddd4c094)
+![image](https://github.com/user-attachments/assets/96644d63-8b22-4902-a888-f0fa4b412a77)
+![image](https://github.com/user-attachments/assets/5dfeb1aa-7fa4-492d-93ae-3f289a7abe85)
+
+Click "Save" button
+![image](https://github.com/user-attachments/assets/fcfe69a8-2fff-41c9-b353-16f811affb69)
+![image](https://github.com/user-attachments/assets/47964725-b73d-466f-b865-3cc2d39f657a)
+![image](https://github.com/user-attachments/assets/cd1c6d54-417c-4dfc-92e6-066cb1a8e0ab)
+
+## Lab - Let's create a credential in Ansible Tower to store the private key we generated
+
+Navigate to Resources --> Credentials
+![image](https://github.com/user-attachments/assets/59c2b03d-6c02-4fc0-b9df-a944ea598b6f)
+
+Click "Add" button
+![image](https://github.com/user-attachments/assets/6d9007c9-06d9-4d06-9e04-441b4ccf7420)
+![image](https://github.com/user-attachments/assets/09414934-4e19-4fdb-9d26-c433c951e630)
+![image](https://github.com/user-attachments/assets/dd1cae37-154a-4aaf-8727-62f91b06f80f)
+![image](https://github.com/user-attachments/assets/349c5f61-8da1-4c4d-b97e-922aa5c977d2)
+
+Click "Save" button
+![image](https://github.com/user-attachments/assets/d2d2503c-6d65-4f2a-9d4e-0e694e2b10a3)
+
+## Lab - Let's create an inventory in Ansible Tower
+
+Navigate to Resources --> Inventories
+![image](https://github.com/user-attachments/assets/fa42b60e-920b-40f0-abbd-725cb4c7f9de)
+
+Click "Add" button
+![image](https://github.com/user-attachments/assets/13b13825-5d00-4b4d-80da-f121baa66319)
+
+Select "Add Inventory"
+![image](https://github.com/user-attachments/assets/fc05d87c-b27d-4ed1-8118-a2a76b9d365b)
+
+Type some name for the inventory, may be "Docker Inventory"
+![image](https://github.com/user-attachments/assets/afc26d16-af2e-4bfe-a743-6da6fb9ef59a)
+
+Click "Save" button
+![image](https://github.com/user-attachments/assets/5bf49418-6dd8-432c-bdd1-e96f4e13da2c)
+
+Click on the "Hosts" Tab
+![image](https://github.com/user-attachments/assets/62fe33dc-18d5-4d1e-b57f-49096f1a8e80)
+
+Click on "Add" button
+![image](https://github.com/user-attachments/assets/36c5152a-1015-4b14-bf3a-8804fbbfe103)
+
+Let's add Ubuntu1 connection details as shown below
+![image](https://github.com/user-attachments/assets/679d60ee-f05a-4e25-b96c-5cf5cee9ca68)
+Click on "Save" button
+![image](https://github.com/user-attachments/assets/13ca7028-d350-43d8-8c97-cdd005ef7833)
+
+Let's add Ubuntu2 connection details as shown below
+Click on Hosts tab
+![image](https://github.com/user-attachments/assets/fda47161-2e7e-45e4-800d-91c06bdd367f)
+Click on "Save" button
+![image](https://github.com/user-attachments/assets/ddc3d6d3-adcc-4d06-92f7-92a78e60be1a)
+
+Let's add Rocky1 connection details as shown below
+Click on Hosts tab
+![image](https://github.com/user-attachments/assets/c897a76e-2478-4edf-a7d2-18b8d81cd610)
+Click on "Save" button
+
+Let's add Rocky2 connection details as shown below
+Click on Hosts tab
+![image](https://github.com/user-attachments/assets/df055741-51f5-48de-ae26-a4e501af8edd)
+
+Click on "Save" button
+![image](https://github.com/user-attachments/assets/5d0d302e-f486-4cb9-a598-ca2164018063)
+
+
+Now your hosts tab would look as shown below
+![image](https://github.com/user-attachments/assets/bb7b00ea-4891-4a8b-9301-6c65ec970be6)
+
+## Lab - Let's create a Template(Job Template) in Ansible Tower to run an ansible playbook
+
+Navigate to Resources --> Templates
+![image](https://github.com/user-attachments/assets/b003f499-6efd-4876-8459-d4eb6a6cf416)
+
+Click on "Add" button and select "Add job template"
+![image](https://github.com/user-attachments/assets/6546cc33-7b75-47e2-bc51-1f24951e7466)
+![image](https://github.com/user-attachments/assets/d628f135-af10-44bb-b8d1-4ab330e47049)
+![image](https://github.com/user-attachments/assets/9fa432a0-81ad-450f-88d1-aa7aa98ae4f4)
+![image](https://github.com/user-attachments/assets/0fb1a926-11de-4d66-a688-b80835718cd6)
+![image](https://github.com/user-attachments/assets/cab8cfdb-4224-473a-84bd-99ecac0429b8)
+![image](https://github.com/user-attachments/assets/8ba518bf-3ef8-4243-aefc-be9b9fc12926)
+![image](https://github.com/user-attachments/assets/9af670f4-c188-40fc-b5ee-96a0980e3992)
+![image](https://github.com/user-attachments/assets/a66bba06-f5fd-427f-b149-4069c5f60c4a)
+![image](https://github.com/user-attachments/assets/f05c646e-cb02-4364-80bd-d79b69490a93)
+
+Click on "Save" button
+![image](https://github.com/user-attachments/assets/83e1584d-307e-49d2-be3e-c2672076b6c8)
+
+To run the playbook, click the "Launch" button
+![image](https://github.com/user-attachments/assets/a8a73519-4b3a-49cc-bdb4-f244493f52e6)
+![image](https://github.com/user-attachments/assets/ec647343-d59b-4825-9255-8ca807223323)
+Click on "Launch" button
+![image](https://github.com/user-attachments/assets/96c62946-0777-4306-ba62-f7e667ec99d3)
+![image](https://github.com/user-attachments/assets/7b8d7fc0-dd68-4877-8624-69224836a673)
