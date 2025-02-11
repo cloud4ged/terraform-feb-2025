@@ -70,4 +70,52 @@ Click "Save" button
 
 ## Lab - Let's create an inventory in Ansible Tower
 
-Navigate to Resource 
+Navigate to Resources --> Inventories
+![image](https://github.com/user-attachments/assets/fa42b60e-920b-40f0-abbd-725cb4c7f9de)
+
+Click "Add" button
+![image](https://github.com/user-attachments/assets/13b13825-5d00-4b4d-80da-f121baa66319)
+
+Select "Add Inventory"
+![image](https://github.com/user-attachments/assets/fc05d87c-b27d-4ed1-8118-a2a76b9d365b)
+
+Type some name for the inventory, may be "Docker Inventory"
+![image](https://github.com/user-attachments/assets/afc26d16-af2e-4bfe-a743-6da6fb9ef59a)
+
+Click "Save" button
+![image](https://github.com/user-attachments/assets/5bf49418-6dd8-432c-bdd1-e96f4e13da2c)
+
+Click on the "Hosts" Tab
+![image](https://github.com/user-attachments/assets/62fe33dc-18d5-4d1e-b57f-49096f1a8e80)
+
+Click on "Add" button
+![image](https://github.com/user-attachments/assets/36c5152a-1015-4b14-bf3a-8804fbbfe103)
+
+Let's add Ubuntu1 connection details as shown below
+![image](https://github.com/user-attachments/assets/679d60ee-f05a-4e25-b96c-5cf5cee9ca68)
+Click on "Save" button
+![image](https://github.com/user-attachments/assets/13ca7028-d350-43d8-8c97-cdd005ef7833)
+
+Let's add Ubuntu2 connection details as shown below
+Click on Hosts tab
+![image](https://github.com/user-attachments/assets/fda47161-2e7e-45e4-800d-91c06bdd367f)
+Click on "Save" button
+![image](https://github.com/user-attachments/assets/ddc3d6d3-adcc-4d06-92f7-92a78e60be1a)
+
+Let's add Rocky1 connection details as shown below
+Click on Hosts tab
+![image](https://github.com/user-attachments/assets/c897a76e-2478-4edf-a7d2-18b8d81cd610)
+Click on "Save" button
+
+Let's add Rocky2 connection details as shown below
+Click on Hosts tab
+![image](https://github.com/user-attachments/assets/df055741-51f5-48de-ae26-a4e501af8edd)
+
+Click on "Save" button
+![image](https://github.com/user-attachments/assets/5d0d302e-f486-4cb9-a598-ca2164018063)
+
+
+Now your hosts tab would look as shown below
+![image](https://github.com/user-attachments/assets/bb7b00ea-4891-4a8b-9301-6c65ec970be6)
+
+
