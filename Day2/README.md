@@ -51,4 +51,6 @@ Select "Git" under Source Control Type
 
 Click "Save" button
 ![image](https://github.com/user-attachments/assets/fcfe69a8-2fff-41c9-b353-16f811affb69)
+![image](https://github.com/user-attachments/assets/47964725-b73d-466f-b865-3cc2d39f657a)
+![image](https://github.com/user-attachments/assets/cd1c6d54-417c-4dfc-92e6-066cb1a8e0ab)
 
