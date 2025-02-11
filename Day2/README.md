@@ -523,3 +523,4 @@ go run ./loops.go
 
 Expected output
 ![image](https://github.com/user-attachments/assets/f1245c9f-216a-4507-b573-d80f0f4fa69d)
+![image](https://github.com/user-attachments/assets/267fb0c3-87da-4b05-88ef-b0605cc24f55)
