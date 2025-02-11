@@ -374,3 +374,45 @@ go run ./files.go
 
 Expected output
 ![image](https://github.com/user-attachments/assets/460fb276-61ce-4d16-82de-2ec39b38491e)
+
+## Lab - Simple calculator in golang
+Create a file named calculator.go with the below content
+<pre>
+package main
+
+import "fmt"
+
+func add( x, y int ) int {
+	return x+y
+}
+
+func subtract( x, y int ) int {
+	return x-y
+}
+
+func multiply( x, y int ) int {
+	return x*y
+}
+
+func divide( x, y int ) int {
+	return x/y
+}
+
+func main() {
+	a := 10
+	b := 20
+
+	fmt.Printf( "The sum of %d + %d is %d\n", a, b, add(a,b) )
+	fmt.Printf( "The diff between %d and %d is %d\n", a, b, subtract(a,b) )
+	fmt.Printf( "The product of %d and %d is %d\n", a, b, multiply(a,b) )
+	fmt.Printf( "%d / %d is %d\n", a, b, divide(a,b) )
+}
+</pre>
+
+Run the program
+```
+go run ./calculator.go
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/fe01a04f-1079-49af-ae3d-9e2d1daf147d)
