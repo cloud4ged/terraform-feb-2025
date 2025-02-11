@@ -161,3 +161,11 @@ Click on "Launch" button
   - while golang compilation is slighly slower than C/C++
   - golang pretty much can be used to develop system tools just like C/C++, while it also offer modern features like python
 </pre>
+
+## Lab - Checking the go lang version
+```
+go version
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/435162a2-fceb-4f9f-b177-de5bf497ead3)
