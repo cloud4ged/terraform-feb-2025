@@ -227,6 +227,5 @@ go run ./variables.go
 Expected output
 ![image](https://github.com/user-attachments/assets/1df67cf4-b862-4e12-9ed8-40822f97e86d)
 ![image](https://github.com/user-attachments/assets/5ed32b65-ed8f-4f14-ba29-adf59cf6343c)
-![image](https://github.com/user-attachments/assets/e996977a-1bc7-4586-aa81-a0e64a48021e)
 ![image](https://github.com/user-attachments/assets/e4282f4d-acb6-412b-8399-33bc31a8c588)
 ![image](https://github.com/user-attachments/assets/fe4d4125-ff6a-4c25-a214-9303bc501b5d)
