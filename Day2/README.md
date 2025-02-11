@@ -130,5 +130,10 @@ Click on "Add" button and select "Add job template"
 ![image](https://github.com/user-attachments/assets/0fb1a926-11de-4d66-a688-b80835718cd6)
 ![image](https://github.com/user-attachments/assets/cab8cfdb-4224-473a-84bd-99ecac0429b8)
 ![image](https://github.com/user-attachments/assets/8ba518bf-3ef8-4243-aefc-be9b9fc12926)
+![image](https://github.com/user-attachments/assets/9af670f4-c188-40fc-b5ee-96a0980e3992)
+![image](https://github.com/user-attachments/assets/a66bba06-f5fd-427f-b149-4069c5f60c4a)
+![image](https://github.com/user-attachments/assets/f05c646e-cb02-4364-80bd-d79b69490a93)
 
+Click on "Save" button
+![image](https://github.com/user-attachments/assets/83e1584d-307e-49d2-be3e-c2672076b6c8)
 
