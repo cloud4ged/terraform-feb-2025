@@ -316,3 +316,61 @@ go run ./files.go
 
 Expected output
 ![image](https://github.com/user-attachments/assets/76109000-823b-428d-b783-108db9da24f6)
+
+The updated files.go looks as shown below
+<pre>
+package main
+
+import (
+   "fmt"
+   "os"
+   "io/ioutil"
+   "log"
+)
+
+func createFile( filename string ) {
+	myfile, err := os.Create( filename )
+
+	if err != nil {
+	   //log.Fatal(err)
+	   panic(err)
+	}
+
+	str := "Some content"
+
+	bytesWritten, err := myfile.WriteString( str + "\n")
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Printf("Wrote %d bytes into the file\n", bytesWritten)
+	myfile.Sync()
+}
+
+func readFile( filename string ) {
+	content, err := ioutil.ReadFile(filename)
+        if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Printf("File content: %s", content
+}
+
+//This is the entry point function that will be automatically by go
+func main() {
+	file := "./myfile.txt"
+
+	createFile( file )
+	readFile(file) 
+
+}	
+</pre>
+
+To run the program
+```
+go run ./files.go
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/460fb276-61ce-4d16-82de-2ec39b38491e)
