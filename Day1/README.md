@@ -1,4 +1,4 @@
-# Day 1
+![image](https://github.com/user-attachments/assets/8d863e55-0a25-4069-a421-fe48d985bd4c)# Day 1
 
 ## Please provide your first day feedback
 ```
@@ -412,3 +412,40 @@ docker images
 Expected output
 ![image](https://github.com/user-attachments/assets/82d3e9d9-d41d-4eb0-b9b9-e7a947618479)
 ![image](https://github.com/user-attachments/assets/7c49dd50-b752-433d-83e4-e9a823ad0de9)
+
+## Lab - Let's create couple of rocky linux containers using our custom rocky linux ansible container images
+```
+docker run -d --name rocky1 --hostname rocky1 -p 2003:22 -p 8003:80 tektutor/rocky-ansible-node:latest
+docker run -d --name rocky2 --hostname rocky2 -p 2004:22 -p 8004:80 tektutor/rocky-ansible-node:latest
+docker ps
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/17a0d1b8-95b3-4a41-bfda-179fb3678ce3)
+
+## Lab - Try connecting to rocky1 and rocky2 ansible node containers via SSH
+```
+ssh -p 2003 root@localhost
+exit
+
+ssh -p 2004 root@localhost
+exit
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/5a13f3ac-8aaa-4880-9446-470999e376fd)
+
+
+## Lab - Let's check if ansible is able to ping the rocky ansible nodes
+```
+cd ~/terraform-feb-2025
+git pull
+cd Day1/ansible/roles
+cat hosts
+ansible -i hosts dev -m ping
+ansible -i hosts prod -m ping
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/140b6aeb-6cac-4596-9e2c-fe89ecdd6b0c)
+![image](https://github.com/user-attachments/assets/3aa0590c-a568-4e2d-baf9-e1eef5cf17dc)

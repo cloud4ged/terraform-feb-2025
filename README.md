@@ -97,3 +97,89 @@ Check if golang is installed
 ```
 go version
 ```
+
+## Info - Installing AWX in Ubuntu ( Please don't do this in our lab environment - this is just for your reference )
+
+First, let's install minikube
+```
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
+minikube start  --vm-driver=docker --addons=ingress
+```
+
+Expected output
+
+Let's install kubectl 
+```
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+chmod +x kubectl
+sudo mv kubectl /usr/local/bin
+```
+
+Check if minikube is installed properly
+```
+kubectl get nodes
+```
+
+Expected output
+
+Let's install AWX operator in minikube
+```
+sudo apt install make -y
+cd ~
+git clone https://github.com/ansible/awx-operator.git
+cd awx-operator/
+git checkout 2.19.0
+export NAMESPACE=ansible-awx
+make deploy
+
+kubectl get pods -n ansible-awx
+```
+
+Expected output
+
+Track the progress of awx installation
+```
+kubectl logs -f deployments/awx-operator-controller-manager -c awx-manager -n ansible-awx
+```
+
+Expected output
+
+
+Access the AWX dashboard
+```
+cp awx-demo.yml awx-ubuntu.yml
+kubectl create -f awx-ubuntu.yml -n ansible-awx
+kubectl get pods -n ansible-awx
+kubectl get svc -n ansible-awx
+minikube service awx-ubuntu-service --url -n ansible-awx
+```
+Expected output
+
+
+AWX Login Credentials
+```
+username - admin
+```
+
+To retrieve password
+```
+kubectl get secret -n ansible-awx | grep -i password
+kubectl get secret awx-ubuntu-admin-password -o jsonpath="{.data.password}" -n ansible-awx | base64 --decode; echo
+```
+
+Expected output
+
+
+If everything went smooth, you are expected to see similar page
+
+
+To access the awx dashboard from other machines, you need to do port-forwarding
+```
+kubectl port-forward service/awx-ubuntu-service -n ansible-awx --address 0.0.0.0 10445:80 &> /dev/null &
+```
+
+You may now access the dashboard from other machines as
+```
+http://10.0.1.72:10445
+```
