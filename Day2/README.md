@@ -36,3 +36,16 @@ http://10.0.1.72:31225
 Expected output
 ![image](https://github.com/user-attachments/assets/3081631a-89f0-46cc-b84d-412c0ea41dd0)
 ![image](https://github.com/user-attachments/assets/6c8a2104-c97f-4f74-80cd-d9adb6443dc0)
+
+
+## Lab - Creating a project in Ansible Tower
+Navigate to Resource --> Projects
+![image](https://github.com/user-attachments/assets/ee41a93c-96cc-44f5-b799-bc2913d25f2c)
+
+Click "Add" button
+![image](https://github.com/user-attachments/assets/0169dd9c-89c1-42d5-a006-9a99674b3f6a)
+Select "Git" under Source Control Type
+![image](https://github.com/user-attachments/assets/9d9b571c-dfa4-4a04-84e0-69aeddd4c094)
+![image](https://github.com/user-attachments/assets/96644d63-8b22-4902-a888-f0fa4b412a77)
+![Uploading image.png…]()
+
