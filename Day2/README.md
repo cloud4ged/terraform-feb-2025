@@ -276,4 +276,43 @@ Expected output
 ![image](https://github.com/user-attachments/assets/fa71f931-e031-48d7-99c6-8eeb5987c5ab)
 ![image](https://github.com/user-attachments/assets/d8330549-38ee-4513-a656-7a2fb55c8ec5)
 
+## Lab - Creating a text file
 
+Create a file names files.go with the below content
+<pre>
+package main
+
+import (
+   "fmt"
+   "os"
+   "log"
+)
+
+func main() {
+
+	myfile, err := os.Create("./myfile.txt")
+
+	if err != nil {
+	   log.Fatal(err)
+	}
+
+	str := "Some content"
+
+	bytesWritten, err := myfile.WriteString( str + "\n")
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Printf("Wrote %d bytes into the file\n", bytesWritten)
+	myfile.Sync()
+}  
+</pre>
+
+Run the program
+```
+go run ./files.go
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/76109000-823b-428d-b783-108db9da24f6)
