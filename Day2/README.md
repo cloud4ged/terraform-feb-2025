@@ -25,3 +25,4 @@ kubectl get secret awx-ubuntu-admin-password -o jsonpath="{.data.password}" -n a
 
 Expected output
 ![image](https://github.com/user-attachments/assets/3081631a-89f0-46cc-b84d-412c0ea41dd0)
+![image](https://github.com/user-attachments/assets/6c8a2104-c97f-4f74-80cd-d9adb6443dc0)
