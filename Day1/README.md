@@ -389,9 +389,12 @@ You could pull the role from github if you don't prefer doing it yourself
 cd ~/terraform-feb-2025
 git pull
 cd Day1/ansible/roles
-tree
+tree nginx
+ansible-playbook -i hosts install-nginx-playbook.yml
 ```
 
 
 Expected output
 ![image](https://github.com/user-attachments/assets/7998b670-dd9e-41b6-bd69-7513301ddd34)
+![image](https://github.com/user-attachments/assets/2f4b061a-ba68-4c38-9359-0217037efdc5)
+![image](https://github.com/user-attachments/assets/f4d5588c-38fc-41fb-bef2-0291cc366217)
