@@ -47,5 +47,5 @@ Click "Add" button
 Select "Git" under Source Control Type
 ![image](https://github.com/user-attachments/assets/9d9b571c-dfa4-4a04-84e0-69aeddd4c094)
 ![image](https://github.com/user-attachments/assets/96644d63-8b22-4902-a888-f0fa4b412a77)
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/5dfeb1aa-7fa4-492d-93ae-3f289a7abe85)
 
