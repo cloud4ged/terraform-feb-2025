@@ -49,3 +49,6 @@ Select "Git" under Source Control Type
 ![image](https://github.com/user-attachments/assets/96644d63-8b22-4902-a888-f0fa4b412a77)
 ![image](https://github.com/user-attachments/assets/5dfeb1aa-7fa4-492d-93ae-3f289a7abe85)
 
+Click "Save" button
+![image](https://github.com/user-attachments/assets/fcfe69a8-2fff-41c9-b353-16f811affb69)
+
