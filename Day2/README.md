@@ -63,10 +63,11 @@ Click "Add" button
 ![image](https://github.com/user-attachments/assets/6d9007c9-06d9-4d06-9e04-441b4ccf7420)
 ![image](https://github.com/user-attachments/assets/09414934-4e19-4fdb-9d26-c433c951e630)
 ![image](https://github.com/user-attachments/assets/dd1cae37-154a-4aaf-8727-62f91b06f80f)
+![image](https://github.com/user-attachments/assets/349c5f61-8da1-4c4d-b97e-922aa5c977d2)
 
 Click "Save" button
 ![image](https://github.com/user-attachments/assets/d2d2503c-6d65-4f2a-9d4e-0e694e2b10a3)
 
-
-
 ## Lab - Let's create an inventory in Ansible Tower
+
+Navigate to Resource 
