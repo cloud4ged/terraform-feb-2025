@@ -30,7 +30,7 @@ kubectl port-forward service/awx-demo-service -n ansible-awx --address 0.0.0.0 1
 
 You may now access the dashboard from other machines as
 ```
-http://10.0.1.72:10445
+http://10.0.1.72:31225
 ```
 
 Expected output
