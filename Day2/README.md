@@ -20,7 +20,7 @@ username - admin
 To retrieve password
 ```
 kubectl get secret -n ansible-awx | grep -i password
-kubectl get secret awx-ubuntu-admin-password -o jsonpath="{.data.password}" -n ansible-awx | base64 --decode; echo
+kubectl get secret awx-demo-admin-password -o jsonpath="{.data.password}" -n ansible-awx | base64 --decode; echo
 ```
 
 To access the awx dashboard from other machines, you need to do port-forwarding
