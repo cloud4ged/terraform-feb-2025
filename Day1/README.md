@@ -434,3 +434,18 @@ exit
 
 Expected output
 ![image](https://github.com/user-attachments/assets/5a13f3ac-8aaa-4880-9446-470999e376fd)
+
+
+## Lab - Let's check if ansible is able to ping the rocky ansible nodes
+```
+cd ~/terraform-feb-2025
+git pull
+cd Day1/ansible/roles
+cat hosts
+ansible -i hosts dev -m ping
+ansible -i hosts prod -m ping
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/140b6aeb-6cac-4596-9e2c-fe89ecdd6b0c)
+![image](https://github.com/user-attachments/assets/3aa0590c-a568-4e2d-baf9-e1eef5cf17dc)
