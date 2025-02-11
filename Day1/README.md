@@ -449,3 +449,18 @@ ansible -i hosts prod -m ping
 Expected output
 ![image](https://github.com/user-attachments/assets/140b6aeb-6cac-4596-9e2c-fe89ecdd6b0c)
 ![image](https://github.com/user-attachments/assets/3aa0590c-a568-4e2d-baf9-e1eef5cf17dc)
+
+
+## Lab - Execute the install nginx playbook that invokes our custom nginx role
+```
+cd ~/terraform-feb-2025
+git pull
+cd Day1/ansible/roles
+ansible-playbook -i hosts install-nginx-playbook.yml
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/56ac09fd-e81b-4cf3-a770-a276994523d1)
+![image](https://github.com/user-attachments/assets/6750ded4-c57f-448a-91ae-1bbcc56e8170)
+![image](https://github.com/user-attachments/assets/2a9511cb-7f7d-41fb-b3d6-a652c689029d)
+![image](https://github.com/user-attachments/assets/b26b2cdc-41d8-4643-8628-104e2bc7f213)
