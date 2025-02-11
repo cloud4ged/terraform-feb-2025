@@ -241,3 +241,34 @@ Expected output
 - float32 float64
 - complex64 complex128
 </pre>
+
+## Lab - Print formatting
+
+Create a file named print-formatting.go with the below content
+<pre>
+package main
+
+import "fmt"
+
+func main() {
+
+  str1 := "a :"
+  str2 := "ab :"
+  str3 := "abc :"
+  str4 := "abcd :"
+
+  fmt.Printf("%10v  %5v\n", str1, 10 )
+  fmt.Printf("%10v  %5v\n", str2, 203 )
+  fmt.Printf("%10v  %5v\n", str3, 1999 )
+  fmt.Printf("%10v  %5v\n", str4, 19999 )
+
+}  
+</pre>
+
+Let's run the program
+```
+go run ./print-formatting.go
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/aa493b93-6cc6-4e01-9c5d-b443f279b546)
