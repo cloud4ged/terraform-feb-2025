@@ -1,10 +1,9 @@
 - name: Create custom folder to place our web pages
-  when: (ansible_distribution == "Ubuntu" and ansible_os_family == "Debian")
   file: path=/var/html  state=directory mode=0777
   notify:
-  - Restart nginx web server service to apply config changes
+  - Restart nginx web server service to apply config changes in Ubuntu
 
 - name: Configure nginx to pick web page from our custom folder
   copy: src=default dest=/etc/nginx/sites-available/default
   notify:
-  - Restart nginx web server service to apply config changes
+  - Restart nginx web server service to apply config changes in Ubuntu
