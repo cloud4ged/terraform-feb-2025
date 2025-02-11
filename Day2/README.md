@@ -495,3 +495,31 @@ go run ./accepting-inputs.go
 
 Expected output
 ![image](https://github.com/user-attachments/assets/e356d0af-2d6b-4600-87f9-4cc6777a807d)
+
+
+## Lab - Golang loops
+Create a file named loops.go with the below content
+<pre>
+package main
+import "fmt"
+
+func main() {
+
+	count := 5
+
+	for count > 0 {
+		fmt.Println (count)
+		count--
+	}
+
+	fmt.Println(count)
+}	
+</pre>
+
+Run the program
+```
+go run ./loops.go
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/f1245c9f-216a-4507-b573-d80f0f4fa69d)
