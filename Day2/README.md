@@ -23,6 +23,16 @@ kubectl get secret -n ansible-awx | grep -i password
 kubectl get secret awx-ubuntu-admin-password -o jsonpath="{.data.password}" -n ansible-awx | base64 --decode; echo
 ```
 
+To access the awx dashboard from other machines, you need to do port-forwarding
+```
+kubectl port-forward service/awx-demo-service -n ansible-awx --address 0.0.0.0 10445:80 &> /dev/null &
+```
+
+You may now access the dashboard from other machines as
+```
+http://10.0.1.72:10445
+```
+
 Expected output
 ![image](https://github.com/user-attachments/assets/3081631a-89f0-46cc-b84d-412c0ea41dd0)
 ![image](https://github.com/user-attachments/assets/6c8a2104-c97f-4f74-80cd-d9adb6443dc0)
