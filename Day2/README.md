@@ -6,6 +6,7 @@ minikube status
 minikube start
 kubectl get pods -n ansible-awx
 kubectl get svc -n ansible-awx
+minikube service awx-demo-service --url -n ansible-awx
 ```
 
 Expected output
