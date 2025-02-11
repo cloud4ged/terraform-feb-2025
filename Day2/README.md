@@ -118,4 +118,17 @@ Click on "Save" button
 Now your hosts tab would look as shown below
 ![image](https://github.com/user-attachments/assets/bb7b00ea-4891-4a8b-9301-6c65ec970be6)
 
+## Lab - Let's create a Template(Job Template) in Ansible Tower to run an ansible playbook
+
+Navigate to Resources --> Templates
+![image](https://github.com/user-attachments/assets/b003f499-6efd-4876-8459-d4eb6a6cf416)
+
+Click on "Add" button and select "Add job template"
+![image](https://github.com/user-attachments/assets/6546cc33-7b75-47e2-bc51-1f24951e7466)
+![image](https://github.com/user-attachments/assets/d628f135-af10-44bb-b8d1-4ab330e47049)
+![image](https://github.com/user-attachments/assets/9fa432a0-81ad-450f-88d1-aa7aa98ae4f4)
+![image](https://github.com/user-attachments/assets/0fb1a926-11de-4d66-a688-b80835718cd6)
+![image](https://github.com/user-attachments/assets/cab8cfdb-4224-473a-84bd-99ecac0429b8)
+![image](https://github.com/user-attachments/assets/8ba518bf-3ef8-4243-aefc-be9b9fc12926)
+
 
