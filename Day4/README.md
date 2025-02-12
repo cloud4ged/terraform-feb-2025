@@ -237,4 +237,5 @@ Execute Terraform automation scripts
 ```
 terraform init
 terraform apply
+docker ps
 ```
