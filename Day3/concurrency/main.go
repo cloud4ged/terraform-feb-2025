@@ -20,6 +20,7 @@ func printSomething() {
 }
 
 func main() {
+  fmt.Println("Press any key to exit ...")
   go printLoop( 10 )
   go printSomething()
   var tmp string
