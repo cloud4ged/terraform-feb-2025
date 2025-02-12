@@ -1,6 +1,6 @@
 # Day 4
 
-## Lab - Developing a custom Terraform docker provider
+## Lab - Developing a custom Terraform docker provider (Incomplete exercise - do not try this )
 Let's install the Terraform Plugin Framework
 ```
 go mod init github.com/tektutor/terraform-provider-docker
@@ -150,3 +150,9 @@ resource "tektutor_dockercontainer_resource" "nginx_container" {
   containerName = "nginx1"
 }
 </pre>
+
+Execute Terraform automation scripts
+```
+terraform init
+terraform apply
+```
