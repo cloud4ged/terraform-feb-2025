@@ -231,3 +231,4 @@ terraform apply
 Expected output
 ![image](https://github.com/user-attachments/assets/bdcfb0ac-27cb-42d4-9bd8-088e3d1c7e5c)
 ![image](https://github.com/user-attachments/assets/b7f150fb-5262-41b3-a8b1-ac5ac98ef480)
+![image](https://github.com/user-attachments/assets/192fc775-5a4e-428f-ace5-e275fac31874)
