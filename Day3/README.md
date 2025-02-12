@@ -244,3 +244,52 @@ Expected out
 ![image](https://github.com/user-attachments/assets/9d8a28b9-0214-4ff7-a30e-6ec72ad73a91)
 ![image](https://github.com/user-attachments/assets/a74414b7-bf6f-425d-a7bd-4eee93d2fd76)
 ![image](https://github.com/user-attachments/assets/c549f7eb-6c71-4b57-b4be-370bdde572aa)
+
+You could update the main.tf as shown below
+<pre>
+terraform {
+  required_providers {
+    docker = {
+	source = "kreuzwerker/docker"
+        version = "3.0.2"
+    }
+  }
+}
+
+provider "docker" {
+
+}
+
+# Pull ubuntu:20.04 docker image from Docker Hub Remote Registry to Local Docker Registry
+resource "docker_image" "ubuntu" {
+  name = "ubuntu:20.04"
+}
+
+resource "docker_image" "nginx18" {
+  name = "nginx:1.18"
+}
+
+resource "docker_image" "nginx19" {
+  name = "nginx:1.19"
+}
+
+resource "docker_image" "nginx20" {
+  name = "nginx:1.20"
+}	
+</pre>
+
+Then you can try the below
+```
+terraform plan
+terraform apply --auto-approve
+docker images | grep nginx
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/af9b3ddb-bfb1-4069-aee8-c9d7912edb14)
+![image](https://github.com/user-attachments/assets/1793d9ea-1db4-4066-a34b-e43199c090d8)
+![image](https://github.com/user-attachments/assets/ceb907d1-5097-4070-a250-ef65ce1fb104)
+![image](https://github.com/user-attachments/assets/2f2824ee-f75d-45fb-8203-80b3bad22092)
+![image](https://github.com/user-attachments/assets/fdd62ca1-a117-4e18-93b0-345794af49f2)
+![image](https://github.com/user-attachments/assets/13a0b20f-db55-4713-986e-1fc2fd5989e4)
+![image](https://github.com/user-attachments/assets/29723051-f9df-48d1-b532-2bfe34c33c57)
