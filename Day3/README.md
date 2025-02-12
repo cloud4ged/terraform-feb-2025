@@ -123,3 +123,16 @@ go run ./main.go
 
 Expected output
 ![image](https://github.com/user-attachments/assets/6cb4c9b1-7076-46ea-a2b8-1c6ab1b5e374)
+
+## Lab - Golang concurrency and channel
+```
+cd ~/terraform-feb-2025
+git pull
+cd Day3/concurrency
+go run ./channel.go
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/6b10971d-d58b-4020-8766-358c2e403689)
+![image](https://github.com/user-attachments/assets/f251a243-e445-40a4-962e-56ab8be8c369)
+
