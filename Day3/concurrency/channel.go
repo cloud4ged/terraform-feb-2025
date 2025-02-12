@@ -21,7 +21,7 @@ func secondTask( ch chan string ) {
 	//Retrieving the message from the channel - Receive
 	message := <- ch
 	fmt.Println ( "Task 2: received message ", message )
-	time.Sleep( time.Second * 3 )
+	time.Sleep( time.Millisecond * 3 )
   }
 }
 
