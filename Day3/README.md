@@ -122,3 +122,4 @@ go run ./main.go
 ```
 
 Expected output
+![image](https://github.com/user-attachments/assets/6cb4c9b1-7076-46ea-a2b8-1c6ab1b5e374)
