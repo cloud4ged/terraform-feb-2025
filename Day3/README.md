@@ -57,7 +57,7 @@ Let's first begin with the hello module. We need to place the module code in a s
 cd ~
 mkdir hello
 cd hello
-go mod init rps.com/hello
+go mod init tektutor.org/hello
 go mod tidy
 ```
 The above go mod command, will create a go.mod file capturing the module name i.e rps.com/hello.  In addition to that, it will also capture the go version that is required to use the custom module.  The go mod init is used while creating a new go module.
