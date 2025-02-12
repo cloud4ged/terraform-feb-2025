@@ -232,3 +232,13 @@ Expected output
 ![image](https://github.com/user-attachments/assets/bdcfb0ac-27cb-42d4-9bd8-088e3d1c7e5c)
 ![image](https://github.com/user-attachments/assets/b7f150fb-5262-41b3-a8b1-ac5ac98ef480)
 ![image](https://github.com/user-attachments/assets/192fc775-5a4e-428f-ace5-e275fac31874)
+
+Once you are done with this exercise, you may destroy all the resources we created via terraform
+```
+terraform destroy
+```
+
+Expected out
+![image](https://github.com/user-attachments/assets/9d2361dd-cc6a-415c-9e87-580eb365c5fb)
+![image](https://github.com/user-attachments/assets/5faf3c0e-f245-4681-bd7d-5aa499733b2e)
+![image](https://github.com/user-attachments/assets/9d8a28b9-0214-4ff7-a30e-6ec72ad73a91)
