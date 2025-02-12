@@ -167,3 +167,67 @@ Expected output
   - hence they solve two different problems, they are complementing tools not competing tools
   - ansible also has provisioning capabilities 	
 </pre>
+
+
+## Lab - Writing your first Terraform automation script
+
+We need to first create a terraform project by creating a directory
+```
+cd ~
+mkdir terraform-pull-image
+cd terraform-pull-image
+```
+
+Inside the terraform-pull-image folder, create a file named main.tf
+```
+terraform {
+  required_providers {
+    docker = {
+	source = "kreuzwerker/docker"
+        version = "3.0.2"
+    }
+  }
+}
+
+# Creates an instance of the docker provider
+provider "docker" {
+
+}
+
+# Pull ubuntu:20.04 docker image from Docker Hub Remote Registry to Local Docker Registry
+resource "docker_image" "ubuntu" {
+  name = "ubuntu:20.04"
+}
+```
+Expected output
+![image](https://github.com/user-attachments/assets/5d003c29-94a3-441b-a56e-b8ecc5280b9a)
+
+
+
+Let's download the required provider plugins as shown below ( mandatory first step )
+```
+terraform init
+ls -lha
+tree .terraform
+```
+Expected output
+![image](https://github.com/user-attachments/assets/ccddd455-9bc5-4817-b88c-24f89e372a57)
+![image](https://github.com/user-attachments/assets/26d7f6bd-94e4-4a18-894a-17f78ad00a94)
+
+
+Let's create plan to inspect what terraform will do if we run the script ( dry run - it won't really execute )
+```
+terraform plan
+```
+Expected output
+![image](https://github.com/user-attachments/assets/168a29af-d0e3-4c38-b166-6ff26774d7c0)
+
+
+Once you are happy with the terraform plan, you may apply it
+```
+terraform apply
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/bdcfb0ac-27cb-42d4-9bd8-088e3d1c7e5c)
+![image](https://github.com/user-attachments/assets/b7f150fb-5262-41b3-a8b1-ac5ac98ef480)
