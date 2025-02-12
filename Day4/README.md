@@ -211,7 +211,6 @@ go build -o terraform-provider-docker
 ```
 
 Expected output
-![image](https://github.com/user-attachments/assets/66f0c4de-d8cd-407a-8149-2181b19e5afb)
 
 Move the binary to Terraform plugin directory
 ```
