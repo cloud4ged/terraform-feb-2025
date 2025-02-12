@@ -136,3 +136,19 @@ Expected output
 ![image](https://github.com/user-attachments/assets/6b10971d-d58b-4020-8766-358c2e403689)
 ![image](https://github.com/user-attachments/assets/f251a243-e445-40a4-962e-56ab8be8c369)
 
+## Info - Terraform Overview
+<pre>
+- Terraform - a IOC, Infrastructure as a Code tool
+- in otherwords, a provisioning tool
+- helps in provisioning resources locally, private/public/hybrid cloud
+- it is an alternate to AWS Cloudformation
+- the advantage of using Terraform over AWS Cloudformation is, Terraform is cloud newtral(supports all public/private/hybrid cloud and locally too ), while Cloudformation supports only AWS
+- Developed by a company called HashiCorp
+- it comes in 2 flavours
+  - open source
+    - command-line
+  - enterprise 
+    - you get out of the box centralized state management
+    - you also get world-wide support from Hashicorp 
+    - supports web console interface
+</pre>
