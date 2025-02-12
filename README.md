@@ -183,3 +183,12 @@ You may now access the dashboard from other machines as
 ```
 http://10.0.1.72:10445
 ```
+
+## Installing Microsoft Visual Studio Code Editor in Ubuntu
+```
+sudo snap install code --classic
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/7d8842c2-a84c-43fd-861e-2ceafeefbb7b)
+
