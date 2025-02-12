@@ -39,3 +39,11 @@ Expected output
 ![image](https://github.com/user-attachments/assets/13516d7c-2cc1-4900-9183-1bf7c782eb3b)
 
 To exit, you may press any key.
+
+## Info - Golang modules
+<pre>
+- is a way we can write reusable code
+- go modules can have multiple go files
+- go modules can export reusable functions to the external world by ensure the function name first letter begins with Upper case
+- any internal implementation details in go module can be abstracted by naming those functions with _ or by starting the function name with a lowercase character
+</pre>
