@@ -143,3 +143,384 @@ To run the playbook, click the "Launch" button
 Click on "Launch" button
 ![image](https://github.com/user-attachments/assets/96c62946-0777-4306-ba62-f7e667ec99d3)
 ![image](https://github.com/user-attachments/assets/7b8d7fc0-dd68-4877-8624-69224836a673)
+![image](https://github.com/user-attachments/assets/ed5ff31d-6eae-4063-b053-98a1c7571992)
+![image](https://github.com/user-attachments/assets/af34b233-0f4d-4c09-9c91-0fb0b61e2942)
+
+## Info - Golang overview
+<pre>
+- a programming developed and maintained by Google
+- it is an open source progamming language
+- popular tools like Docker, Kubernetes and Openshift were all developed using Go lang
+- its syntax resembles C language, originally developed in C/C++ but later rebuild using go lang
+- it is a compiled language
+- For example
+  - python is an interpretted language, where each line of code is interpretted while running the script
+  - golang source is compiled like C++ to its machine executable format, hence all the compiler errors are reported at one shot unlike python or any other interpretted programming language
+  - unlike C/C++, the memory management is handled by golang itself, it supports pointers like C/C++
+  - when golang source code is compiled, it is observed the compilation is faster than any interpretted programming languages like python, ruby, etc.,
+  - while golang compilation is slighly slower than C/C++
+  - golang pretty much can be used to develop system tools just like C/C++, while it also offer modern features like python
+</pre>
+
+## Lab - Checking the go lang version
+```
+go version
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/435162a2-fceb-4f9f-b177-de5bf497ead3)
+
+## Lab - Writing a hello program in go lang
+
+Create a file named hello.go with the below content
+<pre>
+package main
+
+import "fmt"
+
+func main() {
+  fmt.Println( "Hello Golang !" )
+}  
+</pre>
+
+To run your go program
+```
+go run ./hello.go
+```
+
+If you wish to build the hello.go to an exe that can be directly executed
+```
+go build ./hello.go
+ls
+./hello
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/34f85c03-c50a-4922-b5a0-6b743ae15c5b)
+
+## Lab - Go variables
+
+Let's create file named variables.go with the below content
+<pre>
+package main
+
+import "fmt"
+
+func main() {
+   var name = "James Gosling"
+   fmt.Println(name)
+
+   var firstNumber, secondNumber int = 10, 20
+   fmt.Println( "Value of first number is ", firstNumber )
+   fmt.Println( "Value of second number is ", secondNumber )
+
+   var thirdNumber = 30
+   fmt.Println ( "Value of third number is ", thirdNumber )
+}  
+</pre>
+
+Let's run the program as
+```
+go run ./variables.go
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/1df67cf4-b862-4e12-9ed8-40822f97e86d)
+![image](https://github.com/user-attachments/assets/5ed32b65-ed8f-4f14-ba29-adf59cf6343c)
+![image](https://github.com/user-attachments/assets/e4282f4d-acb6-412b-8399-33bc31a8c588)
+![image](https://github.com/user-attachments/assets/fe4d4125-ff6a-4c25-a214-9303bc501b5d)
+
+## Info - Go basic types
+<pre>
+- bool
+- string
+- int, int8, int16, int32, int64
+- uint, uint8, uint16, uint32, uint64 uintptr
+- byte ( alias of uint8 )
+- rune ( alias for int32 - represents a unicode )
+- float32 float64
+- complex64 complex128
+</pre>
+
+## Lab - Print formatting
+
+Create a file named print-formatting.go with the below content
+<pre>
+package main
+
+import "fmt"
+
+func main() {
+
+  str1 := "a :"
+  str2 := "ab :"
+  str3 := "abc :"
+  str4 := "abcd :"
+
+  fmt.Printf("%10v  %5v\n", str1, 10 )
+  fmt.Printf("%10v  %5v\n", str2, 203 )
+  fmt.Printf("%10v  %5v\n", str3, 1999 )
+  fmt.Printf("%10v  %5v\n", str4, 19999 )
+
+}  
+</pre>
+
+Let's run the program
+```
+go run ./print-formatting.go
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/aa493b93-6cc6-4e01-9c5d-b443f279b546)
+![image](https://github.com/user-attachments/assets/dd7a11e9-16d8-42db-83ac-f5275bc0b766)
+![image](https://github.com/user-attachments/assets/fa71f931-e031-48d7-99c6-8eeb5987c5ab)
+![image](https://github.com/user-attachments/assets/d8330549-38ee-4513-a656-7a2fb55c8ec5)
+
+## Lab - Creating a text file
+
+Create a file names files.go with the below content
+<pre>
+package main
+
+import (
+   "fmt"
+   "os"
+   "log"
+)
+
+func main() {
+
+	myfile, err := os.Create("./myfile.txt")
+
+	if err != nil {
+	   log.Fatal(err)
+	}
+
+	str := "Some content"
+
+	bytesWritten, err := myfile.WriteString( str + "\n")
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Printf("Wrote %d bytes into the file\n", bytesWritten)
+	myfile.Sync()
+}  
+</pre>
+
+Run the program
+```
+go run ./files.go
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/76109000-823b-428d-b783-108db9da24f6)
+
+The updated files.go looks as shown below
+<pre>
+package main
+
+import (
+   "fmt"
+   "os"
+   "io/ioutil"
+   "log"
+)
+
+func createFile( filename string ) {
+	myfile, err := os.Create( filename )
+
+	if err != nil {
+	   //log.Fatal(err)
+	   panic(err)
+	}
+
+	str := "Some content"
+
+	bytesWritten, err := myfile.WriteString( str + "\n")
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Printf("Wrote %d bytes into the file\n", bytesWritten)
+	myfile.Sync()
+}
+
+func readFile( filename string ) {
+	content, err := ioutil.ReadFile(filename)
+        if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Printf("File content: %s", content
+}
+
+//This is the entry point function that will be automatically by go
+func main() {
+	file := "./myfile.txt"
+
+	createFile( file )
+	readFile(file) 
+
+}	
+</pre>
+
+To run the program
+```
+go run ./files.go
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/460fb276-61ce-4d16-82de-2ec39b38491e)
+
+## Lab - Simple calculator in golang
+Create a file named calculator.go with the below content
+<pre>
+package main
+
+import "fmt"
+
+func add( x, y int ) int {
+	return x+y
+}
+
+func subtract( x, y int ) int {
+	return x-y
+}
+
+func multiply( x, y int ) int {
+	return x*y
+}
+
+func divide( x, y int ) int {
+	return x/y
+}
+
+func main() {
+	a := 10
+	b := 20
+
+	fmt.Printf( "The sum of %d + %d is %d\n", a, b, add(a,b) )
+	fmt.Printf( "The diff between %d and %d is %d\n", a, b, subtract(a,b) )
+	fmt.Printf( "The product of %d and %d is %d\n", a, b, multiply(a,b) )
+	fmt.Printf( "%d / %d is %d\n", a, b, divide(a,b) )
+}
+</pre>
+
+Run the program
+```
+go run ./calculator.go
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/fe01a04f-1079-49af-ae3d-9e2d1daf147d)
+
+
+## Lab - Understanding go if else contstruct
+Create a file named ifelse.go with the below content
+<pre>
+package main
+import "fmt"
+
+func compareString( str1, str2 string ) bool {
+	var result bool
+
+	if str1 == str2 {
+		result = true
+	} else {
+		result = false
+	}
+
+	return result
+}
+
+func main() {
+	str1 := "go"
+	str2 := "go"
+
+	fmt.Printf("%s and %s matching? : %v\n", str1, str2, compareString(str1,str2) )
+
+	str1 = "Go"
+	str2 = "go"
+	fmt.Printf("%s and %s matching? : %v\n", str1, str2, compareString(str1,str2) )
+}	
+</pre>
+
+Run the program
+```
+go run ./ifelse.go
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/ae94ab1b-b564-4cb4-b44e-6df45bd23e92)
+
+## Lab - Accepting inputs and using switch case statement
+
+Create a file named accepting-inputs.go with the below content
+<pre>
+package main
+import "fmt"
+
+func main() {
+	var direction string
+
+	//Valid values are east,west,north,south
+	fmt.Print ("Enter some direction : ")
+	fmt.Scanln(&direction)
+
+	switch direction {
+
+	case "east":
+		fmt.Println("You entered direction ", direction )
+	case "west":
+		fmt.Println("You entered direction ", direction )
+	case "south":
+		fmt.Println("You entered direction ", direction )
+	case "north":	
+		fmt.Println("You entered direction ", direction )
+	default:
+		fmt.Println("Invalid direction")
+
+	}
+
+}	
+</pre>
+
+Run the program
+```
+go run ./accepting-inputs.go
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/e356d0af-2d6b-4600-87f9-4cc6777a807d)
+
+
+## Lab - Golang loops
+Create a file named loops.go with the below content
+<pre>
+package main
+import "fmt"
+
+func main() {
+
+	count := 5
+
+	for count > 0 {
+		fmt.Println (count)
+		count--
+	}
+
+	fmt.Println(count)
+}	
+</pre>
+
+Run the program
+```
+go run ./loops.go
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/f1245c9f-216a-4507-b573-d80f0f4fa69d)
+![image](https://github.com/user-attachments/assets/267fb0c3-87da-4b05-88ef-b0605cc24f55)
