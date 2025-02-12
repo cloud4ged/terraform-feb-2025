@@ -26,3 +26,16 @@ Expected output
 ![image](https://github.com/user-attachments/assets/75e3fc7d-d153-43d4-a486-19049fa740c9)
 
 Let's create a main.go file with the below content
+
+## Lab - Running two or more functions in parallel using concurrency feature in go
+```
+cd ~/terraform-feb-2025
+git pull
+cd Day3/concurrency
+go run ./main.go
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/13516d7c-2cc1-4900-9183-1bf7c782eb3b)
+
+To exit, you may press any key.
