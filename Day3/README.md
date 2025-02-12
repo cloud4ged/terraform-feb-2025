@@ -152,3 +152,18 @@ Expected output
     - you also get world-wide support from Hashicorp 
     - supports web console interface
 </pre>
+
+## Info - Ansible vs Terraform
+<pre>
+- Terraform provision a new machine locally using VMWare, VirtualBox, Hyper-V, docker
+- Terraform can also provision an ec2 instance in AWS, virtual machine in Azure, GCP, Digital Ocean, etc.,
+- Terraform is a provisoner
+- Terraform also has basic configuration management capabilities
+  - Once a machine is provisioned successfully by terraform, terraform can invoke some shell scripts, power shells to further configure it
+  - using shell scripts or powershell scripts is considered an imperative approach, not a declarative approach
+- Ansible is a Configuration Management Tool, which helps us in
+  - installing/uninstalling/upgrading softwares on an already provisioned machine
+  - i.e The machine provisioned by Terraform can be configured further by Ansible
+  - hence they solve two different problems, they are complementing tools not competing tools
+  - ansible also has provisioning capabilities 	
+</pre>
