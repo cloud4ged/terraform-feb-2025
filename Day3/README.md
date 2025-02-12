@@ -84,6 +84,9 @@ cd tektutor
 go mod init tektutor.org/tektutor
 go mod tidy
 ```
+Expected output
+![image](https://github.com/user-attachments/assets/a222ca36-4c34-4060-9918-616b8a6a55bc)
+
 
 Now, let's create a file named main.go with the below content
 <pre>
