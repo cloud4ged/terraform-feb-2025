@@ -293,3 +293,74 @@ Expected output
 ![image](https://github.com/user-attachments/assets/fdd62ca1-a117-4e18-93b0-345794af49f2)
 ![image](https://github.com/user-attachments/assets/13a0b20f-db55-4713-986e-1fc2fd5989e4)
 ![image](https://github.com/user-attachments/assets/29723051-f9df-48d1-b532-2bfe34c33c57)
+
+## Lab - Let's provision a docker container using terraform
+```
+cd ~
+mkdir provision-docker-container
+cd provision-docker-container
+touch main.tf
+touch providers.tf
+```
+
+Update your providers.tf file with the below content
+<pre>
+terraform {
+  required_providers {
+    docker = {
+	source = "kreuzwerker/docker"
+        version = "3.0.2"
+    }
+  }
+}
+
+provider "docker" {
+}	
+</pre>
+
+Update your main.tf file with the below content
+<pre>
+# Pull ubuntu:20.04 docker image from Docker Hub Remote Registry to Local Docker Registry
+resource "docker_image" "ubuntu" {
+  name = "ubuntu:latest"
+}
+//HCL - Hashicorp Configuration Language
+resource "docker_container" "ubuntu_container1" {
+  image		= docker_image.ubuntu.name
+  name		= "ubuntu1_cont"
+  must_run	= true
+  command	= [
+	"tail",
+	"-f",
+	"/dev/null"
+  ]
+}	
+</pre>
+
+Now, let's download the provider plugins
+```
+cd ~/provision-docker-container
+terraform init
+ls -lha
+tree .terraform
+```
+Expected ouput
+![image](https://github.com/user-attachments/assets/2342e66b-0527-499c-9268-e72f6a082699)
+![image](https://github.com/user-attachments/assets/79e33dd9-fbb1-4903-8a4c-7b292e07399d)
+
+Let's check the plan
+```
+terraform plan
+```
+Expected ouput
+![image](https://github.com/user-attachments/assets/1456df06-d4ce-40a6-a4bb-c1a5420b5b28)
+![image](https://github.com/user-attachments/assets/4ae37286-fea8-4e35-af5e-ad900b13eb74)
+
+Let's run the automation
+```
+terraform apply --auto-approve
+```
+
+Expected ouput
+![image](https://github.com/user-attachments/assets/d7a5850a-70fa-4a95-82e1-8580b4a53c92)
+![image](https://github.com/user-attachments/assets/b860ee7d-5c0d-4ca5-bb2f-c9d1d1c6017d)
