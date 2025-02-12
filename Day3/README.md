@@ -60,7 +60,7 @@ cd hello
 go mod init tektutor.org/hello
 go mod tidy
 ```
-The above go mod command, will create a go.mod file capturing the module name i.e rps.com/hello.  In addition to that, it will also capture the go version that is required to use the custom module.  The go mod init is used while creating a new go module.
+The above go mod command, will create a go.mod file capturing the module name i.e tektutor.org/hello.  In addition to that, it will also capture the go version that is required to use the custom module.  The go mod init is used while creating a new go module.
 
 The go mod tidy command will download the dependencies mentioned in the go.mod file.
 
