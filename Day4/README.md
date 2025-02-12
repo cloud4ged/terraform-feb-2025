@@ -9,6 +9,8 @@ go mod init github.com/tektutor/terraform-provider-docker
 go get github.com/hashicorp/terraform-plugin-framework
 go get github.com/docker/docker/client
 ```
+Expected output
+![image](https://github.com/user-attachments/assets/006247b9-f122-486a-8d03-f52150098d30)
 
 Add the below code into the provider.go file
 <pre>
@@ -207,6 +209,9 @@ Build and Test
 ```
 go build -o terraform-provider-docker
 ```
+
+Expected output
+![image](https://github.com/user-attachments/assets/66f0c4de-d8cd-407a-8149-2181b19e5afb)
 
 Move the binary to Terraform plugin directory
 ```
