@@ -312,3 +312,10 @@ ls -l
 Expected output
 ![image](https://github.com/user-attachments/assets/5d58394f-fe3a-49e6-b327-c10c4eefc45b)
 ![image](https://github.com/user-attachments/assets/7d579401-7511-44ab-8bba-5eaac029787f)
+
+## Lab - Let's try using code generator tool to autogenerate terraform provider plugin code
+```
+go install github.com/hashicorp/terraform-plugin-codegen-framework/cmd/tfplugingen-framework@latest
+
+tfplugingen-framework generate all --input specification.json --output internal/provider
+```
