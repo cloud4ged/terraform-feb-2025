@@ -254,3 +254,62 @@ func resourceDeleteFile(ctx context.Context, d *schema.ResourceData, meta any) d
 }	
 </pre>
 
+Make sure the folder is created
+```
+mkdir -p /home/rps/go/bin
+```
+
+Now, create a file under ~/.terraformrc with the below content
+<pre>
+provider_installation {
+  dev_overrides {
+      "registry.terraform.io/tektutor/file" = "/home/rps/go/bin"
+  }
+  direct {}
+}	
+</pre>
+
+In the terraform-provider-file folder do the below
+```
+cd ~/terraform-provider-file
+go mod tidy
+go run ./main.go
+go build -o terraform-provider-file
+mv ~/go/bin
+go install
+```
+
+Now you can create the main.tf under a folder /home/rps/test-custom-provider
+```
+mkdir ~/test-custom-provider
+cd ~/test-custom-provider
+touch main.tf
+```
+
+Update the main.tf with below content
+<pre>
+terraform {
+   required_providers {
+       localfile = {
+          source = "tektutor/file"
+       }
+   }
+}
+
+resource "localfile" "myfile" {
+    file_name = "./test.txt"
+    file_content = "Testing"
+
+}	
+</pre>
+
+Now, you may try
+```
+terraform plan
+terraform apply --auto-approve
+ls -l
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/5d58394f-fe3a-49e6-b327-c10c4eefc45b)
+![image](https://github.com/user-attachments/assets/7d579401-7511-44ab-8bba-5eaac029787f)
