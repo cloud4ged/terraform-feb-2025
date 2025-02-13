@@ -1,245 +1,256 @@
 # Day 4
 
-## Lab - Developing a custom Terraform docker provider (Incomplete exercise - do not try this )
-Let's install the Terraform Plugin Framework
-```
-mkdir terraform-provider-docker
-cd terraform-provider-docker
-go mod init github.com/tektutor/terraform-provider-docker
-go get github.com/hashicorp/terraform-plugin-framework
-go get github.com/docker/docker/client
-```
-Expected output
-![image](https://github.com/user-attachments/assets/006247b9-f122-486a-8d03-f52150098d30)
+## Lab - Develop a custom Terraform provider that manages local file
 
-Add the below code into the provider.go file
+We need to follow a specific folder structure as recommended by the latest Terraform Provider Plugin developemnt framework
+```
+cd ~
+mkdir -p terraform-provider-file
+cd terraform-provider-file
+touch go.mod
+touch go.sum
+touch main.go
+mkdir -p internal/provider
+touch internal/provider/provider.go
+touch internal/provider/resource_localfile.go
+tree
+```
+
+Modifiy the go.mod with the below content
+<pre>
+module github.com/tektutor/terraform-provider-file
+
+go 1.22
+
+require github.com/hashicorp/terraform-plugin-sdk/v2 v2.25.0
+
+require (
+	github.com/agext/levenshtein v1.2.2 // indirect
+	github.com/apparentlymart/go-textseg/v13 v13.0.0 // indirect
+	github.com/fatih/color v1.13.0 // indirect
+	github.com/golang/protobuf v1.5.2 // indirect
+	github.com/google/go-cmp v0.5.9 // indirect
+	github.com/hashicorp/errwrap v1.1.0 // indirect
+	github.com/hashicorp/go-cty v1.4.1-0.20200414143053-d3edf31b6320 // indirect
+	github.com/hashicorp/go-hclog v1.4.0 // indirect
+	github.com/hashicorp/go-multierror v1.1.1 // indirect
+	github.com/hashicorp/go-plugin v1.4.8 // indirect
+	github.com/hashicorp/go-uuid v1.0.3 // indirect
+	github.com/hashicorp/go-version v1.6.0 // indirect
+	github.com/hashicorp/hcl/v2 v2.16.1 // indirect
+	github.com/hashicorp/logutils v1.0.0 // indirect
+	github.com/hashicorp/terraform-plugin-go v0.14.3 // indirect
+	github.com/hashicorp/terraform-plugin-log v0.8.0 // indirect
+	github.com/hashicorp/terraform-registry-address v0.1.0 // indirect
+	github.com/hashicorp/terraform-svchost v0.0.0-20200729002733-f050f53b9734 // indirect
+	github.com/hashicorp/yamux v0.0.0-20181012175058-2f1d1f20f75d // indirect
+	github.com/kr/pretty v0.3.0 // indirect
+	github.com/mattn/go-colorable v0.1.12 // indirect
+	github.com/mattn/go-isatty v0.0.14 // indirect
+	github.com/mitchellh/copystructure v1.2.0 // indirect
+	github.com/mitchellh/go-testing-interface v1.14.1 // indirect
+	github.com/mitchellh/go-wordwrap v1.0.0 // indirect
+	github.com/mitchellh/mapstructure v1.5.0 // indirect
+	github.com/mitchellh/reflectwalk v1.0.2 // indirect
+	github.com/oklog/run v1.0.0 // indirect
+	github.com/vmihailenco/msgpack v4.0.4+incompatible // indirect
+	github.com/vmihailenco/msgpack/v4 v4.3.12 // indirect
+	github.com/vmihailenco/tagparser v0.1.1 // indirect
+	github.com/zclconf/go-cty v1.12.1 // indirect
+	golang.org/x/net v0.7.0 // indirect
+	golang.org/x/sys v0.5.0 // indirect
+	golang.org/x/text v0.7.0 // indirect
+	google.golang.org/appengine v1.6.6 // indirect
+	google.golang.org/genproto v0.0.0-20200711021454-869866162049 // indirect
+	google.golang.org/grpc v1.51.0 // indirect
+	google.golang.org/protobuf v1.28.1 // indirect
+	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
+)	
+</pre>
+
+Modify the main.go with the below content
 <pre>
 package main
 
 import (
-	"context"
-	"github.com/hashicorp/terraform-plugin-framework/provider"
-	"github.com/hashicorp/terraform-plugin-framework/provider/schema"
-	"github.com/hashicorp/terraform-plugin-framework/resource"
+	"flag"
+
+	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
+	"github.com/tektutor/terraform-provider-file/internal/provider"
 )
 
-// DockerProvider implements the Terraform provider
-type DockerProvider struct{}
+// Run "go generate" to format example terraform files and generate the docs for the registry/website
 
-func (p *DockerProvider) Metadata(ctx context.Context, req provider.MetadataRequest, resp *provider.MetadataResponse) {
-	resp.TypeName = "docker"
-}
+// If you do not have terraform installed, you can remove the formatting command, but its suggested to
+// ensure the documentation is formatted properly.
+//go:generate terraform fmt -recursive ./examples/
 
-func (p *DockerProvider) Schema(ctx context.Context, req provider.SchemaRequest, resp *provider.SchemaResponse) {
-	resp.Schema = schema.Schema{}
-}
+// Run the docs generation tool, check its repository for more information on how it works and how docs
+// can be customized.
+//go:generate go run github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs
 
-func (p *DockerProvider) Resources(ctx context.Context) []func() resource.Resource {
-	return []func() resource.Resource{
-		NewDockerContainerResource,
+var (
+	// these will be set by the goreleaser configuration
+	// to appropriate values for the compiled binary
+	version string = "dev"
+
+	// goreleaser can also pass the specific commit if you want
+	// commit  string = ""
+)
+
+func main() {
+	var debugMode bool
+
+	flag.BoolVar(&debugMode, "debug", false, "set to true to run the provider with support for debuggers like delve")
+	flag.Parse()
+
+	opts := &plugin.ServeOpts{ProviderFunc: provider.New(version)}
+
+	if debugMode {
+		debugOpts := &plugin.ServeOpts{ProviderFunc: provider.New(version), ProviderAddr: "registry.terraform.io/tektutor/file", Debug: true}
+		plugin.Serve(debugOpts)
+		return
 	}
-}
 
-func NewDockerProvider() provider.Provider {
-	return &DockerProvider{}
-}
+	plugin.Serve(opts)
+}	
 </pre>
 
-Add the below code in resource_docker_container.go
+Modify internal/provider/provider.go with below content
 <pre>
-package main
+package provider
 
 import (
 	"context"
 	"fmt"
-	"log"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/container"
-	"github.com/docker/docker/client"
-	"github.com/hashicorp/terraform-plugin-framework/resource"
-	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
-	"github.com/hashicorp/terraform-plugin-framework/resource/schema/attribute"
-	"github.com/hashicorp/terraform-plugin-framework/types"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )
 
-// DockerContainerResource represents a Terraform resource for managing Docker containers
-type DockerContainerResource struct{}
-
-func NewDockerContainerResource() resource.Resource {
-	return &DockerContainerResource{}
+func init() {
+	schema.DescriptionKind = schema.StringMarkdown
 }
 
-func (r *DockerContainerResource) Metadata(ctx context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
-	resp.TypeName = "tektutor_docker_container"
+func New(version string) func() *schema.Provider {
+	fmt.Println("New func invoked ...")
+	return func() *schema.Provider {
+		p := &schema.Provider{
+			DataSourcesMap: map[string]*schema.Resource{
+				//"localfile": dataSourceLocalFile(),
+			},
+			ResourcesMap: map[string]*schema.Resource{
+				"localfile": resourceLocalFile(),
+			},
+		}
+
+		p.ConfigureContextFunc = configure(version, p)
+
+		return p
+	}
 }
 
-func (r *DockerContainerResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
-	resp.Schema = schema.Schema{
-		Attributes: map[string]schema.Attribute{
-			"name": attribute.StringAttribute{
-				Required: true,
+type FileConfig struct {
+	name string
+	content string
+}
+
+func configure(version string, p *schema.Provider) func(context.Context, *schema.ResourceData) (any, diag.Diagnostics) {
+	return func(context.Context, *schema.ResourceData) (any, diag.Diagnostics) {
+		fileConfig := FileConfig {}
+		fileConfig.name = "./test.txt"
+		fileConfig.content = "This is a test file created by terraform"
+
+		return &fileConfig, nil
+	}
+}	
+</pre>
+
+Modify internal/resource_localfile.go with below content
+<pre>
+package provider
+
+import (
+        "fmt"
+        "os"
+	"io/ioutil"
+	"log"
+	"context"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
+)
+
+func resourceLocalFile() *schema.Resource {
+	return &schema.Resource{
+		Description: "This resource will support create, reading, updating and delete a file resource via Terraform.",
+
+		CreateContext: resourceCreateFile,
+		ReadContext:   resourceReadFile,
+		UpdateContext: resourceUpdateFile,
+		DeleteContext: resourceDeleteFile,
+
+		Schema: map[string]*schema.Schema{
+			"file_name": {
+				Description: "Name of the file.",
+				Type:        schema.TypeString,
+				Required:    true,
 			},
-			"image": attribute.StringAttribute{
-				Required: true,
-			},
-			"id": attribute.StringAttribute{
-				Computed: true,
+			"file_content": {
+				Description: "Content that must be stored/retrieved to/from the file.",
+				Type: 	     schema.TypeString,
+				Required:    true,
 			},
 		},
 	}
 }
 
-func (r *DockerContainerResource) Create(ctx context.Context, req resource.CreateRequest, resp *resource.CreateResponse) {
-	var data struct {
-		Name  types.String `tfsdk:"name"`
-		Image types.String `tfsdk:"image"`
-		ID    types.String `tfsdk:"id"`
-	}
+func resourceCreateFile(ctx context.Context, d *schema.ResourceData, meta any) diag.Diagnostics {
+	//client := meta.(*FileConfig)
+	fmt.Println("Inside resourceCreateFile")
 
-	diags := req.Plan.Get(ctx, &data)
-	resp.Diagnostics.Append(diags...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
+	//the file_name and file_content values provided in the main.tf is retrieved here
+	fileName := d.Get("file_name").(string)
+	content  := d.Get("file_content").(string)
 
-	cli, err := client.NewClientWithOpts(client.FromEnv, client.WithAPIVersionNegotiation())
+	myfile, err := os.Create( fileName )
+
 	if err != nil {
-		resp.Diagnostics.AddError("Docker Client Error", err.Error())
-		return
+	   panic(err)
 	}
 
-	log.Printf("Creating Docker container: %s with image %s", data.Name.ValueString(), data.Image.ValueString())
+	bytesWritten, err := myfile.WriteString( content + "\n")
 
-	containerConfig := &container.Config{
-		Image: data.Image.ValueString(),
-	}
-
-	containerBody, err := cli.ContainerCreate(ctx, containerConfig, nil, nil, nil, data.Name.ValueString())
 	if err != nil {
-		resp.Diagnostics.AddError("Container Creation Failed", err.Error())
-		return
+		log.Fatal(err)
 	}
 
-	if err := cli.ContainerStart(ctx, containerBody.ID, types.ContainerStartOptions{}); err != nil {
-		resp.Diagnostics.AddError("Failed to Start Container", err.Error())
-		return
-	}
+	fmt.Printf("Wrote %d bytes into the file\n", bytesWritten)
+	myfile.Sync()
 
-	data.ID = types.StringValue(containerBody.ID)
-
-	resp.State.Set(ctx, &data)
+	return nil 
 }
 
-func (r *DockerContainerResource) Read(ctx context.Context, req resource.ReadRequest, resp *resource.ReadResponse) {
-	var data struct {
-		ID types.String `tfsdk:"id"`
-	}
+func resourceReadFile(ctx context.Context, d *schema.ResourceData, meta any) diag.Diagnostics {
+//	client := meta.(*FileConfig)
 
-	diags := req.State.Get(ctx, &data)
-	resp.Diagnostics.Append(diags...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
+	fileName := d.Get("file_name").(string)
 
-	cli, err := client.NewClientWithOpts(client.FromEnv, client.WithAPIVersionNegotiation())
-	if err != nil {
-		resp.Diagnostics.AddError("Docker Client Error", err.Error())
-		return
+	content, err := ioutil.ReadFile(fileName)
+	fmt.Println(content)
+        if err != nil {
+		log.Fatal(err)
 	}
+	//d.Set("content") = content 
 
-	_, err = cli.ContainerInspect(ctx, data.ID.ValueString())
-	if err != nil {
-		resp.Diagnostics.AddError("Container Not Found", err.Error())
-		resp.State.RemoveResource(ctx)
-		return
-	}
+	return nil 
 }
 
-func (r *DockerContainerResource) Update(ctx context.Context, req resource.UpdateRequest, resp *resource.UpdateResponse) {}
+func resourceUpdateFile(ctx context.Context, d *schema.ResourceData, meta any) diag.Diagnostics {
+	return nil 
+}
 
-func (r *DockerContainerResource) Delete(ctx context.Context, req resource.DeleteRequest, resp *resource.DeleteResponse) {
-	var data struct {
-		ID types.String `tfsdk:"id"`
-	}
-
-	diags := req.State.Get(ctx, &data)
-	resp.Diagnostics.Append(diags...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
-
-	cli, err := client.NewClientWithOpts(client.FromEnv, client.WithAPIVersionNegotiation())
-	if err != nil {
-		resp.Diagnostics.AddError("Docker Client Error", err.Error())
-		return
-	}
-
-	log.Printf("Removing Docker container: %s", data.ID.ValueString())
-
-	err = cli.ContainerRemove(ctx, data.ID.ValueString(), types.ContainerRemoveOptions{Force: true})
-	if err != nil {
-		resp.Diagnostics.AddError("Container Deletion Failed", err.Error())
-		return
-	}
-
-	resp.State.RemoveResource(ctx)
+func resourceDeleteFile(ctx context.Context, d *schema.ResourceData, meta any) diag.Diagnostics {
+	return nil 
 }	
 </pre>
 
-Add the below code in main.go
-<pre>
-package main
-
-import (
-	"context"
-	"github.com/hashicorp/terraform-plugin-framework/providerserver"
-)
-
-func main() {
-	providerserver.Serve(context.Background(), NewDockerProvider, providerserver.ServeOpts{
-		Address: "registry.terraform.io/tektutor/docker",
-	})
-}
-
-
-</pre>
-
-Build and Test
-```
-go build -o terraform-provider-docker
-```
-
-Expected output
-
-Move the binary to Terraform plugin directory
-```
-mkdir -p ~/.terraform.d/plugins/docker/docker/1.0.0/linux_amd64
-mv terraform-provider-docker ~/.terraform.d/plugins/tektutor/docker/1.0.0/linux_amd64/
-```
-
-Create a main.tf with below content
-<pre>
-terraform {
-  required_providers {
-    example = {
-      source  = "tektutor/docker"
-      version = "1.0.0"
-    }
-  }
-}
-
-provider "tektutor-docker" {}
-
-resource "tektutor_docker_container" "my_container" {
-  name  = "my-container"
-  image = "nginx"
-}
-</pre>
-
-Execute Terraform automation scripts
-```
-terraform init
-terraform apply
-docker ps
-```
