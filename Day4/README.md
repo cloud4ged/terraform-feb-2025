@@ -314,6 +314,7 @@ Expected output
 ![image](https://github.com/user-attachments/assets/7d579401-7511-44ab-8bba-5eaac029787f)
 
 ## Lab - Let's try using code generator tool to autogenerate terraform provider plugin code
+For details, you may refer https://developer.hashicorp.com/terraform/plugin/code-generation
 ```
 go install github.com/hashicorp/terraform-plugin-codegen-framework/cmd/tfplugingen-framework@latest
 
