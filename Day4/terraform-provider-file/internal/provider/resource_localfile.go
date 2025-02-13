@@ -47,13 +47,8 @@ func resourceCreateFile(ctx context.Context, d *schema.ResourceData, meta any) d
 	   panic(err)
 	}
 
-	bytesWritten, err := myfile.WriteString( content + "\n")
+	myfile.WriteString( content + "\n")
 
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	fmt.Printf("Wrote %d bytes into the file\n", bytesWritten)
 	myfile.Sync()
 
 	return nil 

@@ -2,8 +2,7 @@ package provider
 
 import (
 	"context"
-	"fmt"
-
+	//"fmt"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )
@@ -13,7 +12,7 @@ func init() {
 }
 
 func New(version string) func() *schema.Provider {
-	fmt.Println("New func invoked ...")
+	//fmt.Println("New func invoked ...")
 	return func() *schema.Provider {
 		p := &schema.Provider{
 			DataSourcesMap: map[string]*schema.Resource{
