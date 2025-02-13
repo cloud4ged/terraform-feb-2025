@@ -166,7 +166,7 @@ func configure(version string, p *schema.Provider) func(context.Context, *schema
 }	
 </pre>
 
-Modify internal/resource_localfile.go with below content
+Modify internal/provider/resource_localfile.go with below content
 <pre>
 package provider
 
