@@ -38,6 +38,7 @@ func listDockerImages() {
 	fmt.Println("")
 }
 
+/*
 func pullDockerImage( imageName string ) {
 	ctx := context.Background()
 	cli, err := client.NewClientWithOpts(client.FromEnv, client.WithAPIVersionNegotiation())
@@ -53,7 +54,8 @@ func pullDockerImage( imageName string ) {
 	defer out.Close()
 	io.Copy(os.Stdout, out)
 }
-/*
+*/
+
 func removeDockerImage( imageName string ) {
     ctx := context.Background()
     cli, err := client.NewClientWithOpts(client.FromEnv, client.WithAPIVersionNegotiation())
@@ -74,7 +76,6 @@ func removeDockerImage( imageName string ) {
 
     fmt.Printf("Image %s removed\n", image.ID)
 }
-*/
 
 func listRunningDockerContainers() {
 	apiClient, err := client.NewClientWithOpts(client.FromEnv)
