@@ -275,7 +275,7 @@ cd ~/terraform-provider-file
 go mod tidy
 go run ./main.go
 go build -o terraform-provider-file
-mv ~/go/bin
+mv terraform-provider-file ~/go/bin
 go install
 ```
 
