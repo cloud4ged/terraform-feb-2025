@@ -55,4 +55,22 @@ Click "Plugins"
 Click "Available Plugins"
 ![image](https://github.com/user-attachments/assets/5b9d5f95-644b-4f61-b48a-438bed408f18)
 
+## Lab - Let's create CI Job to run the Terraform scripts whenever there is a code commit to our terraform-feb-2025.git code repository
+Navigate to Jenkins Dashboard
+![image](https://github.com/user-attachments/assets/a80fd698-0843-4892-8557-ba048fe5f686)
+
+Click "Create a Job"
+![image](https://github.com/user-attachments/assets/f28e0eb7-75a3-4780-9b02-9e893c727e45)
+
+Select "Freestyle Job" and type "Run Terraform Scripts" under "Enter an item name"
+![image](https://github.com/user-attachments/assets/435de084-dea5-46c6-ac0d-350d8ac521e8)
+Click "Ok"
+![image](https://github.com/user-attachments/assets/a2117ec5-fc5e-439a-99f1-d1620e817cec)
+
+General section Description
+![image](https://github.com/user-attachments/assets/4a64fc06-5892-4942-b944-9ead8c81958f)
+
+Under Source Code Managment, select "Git"
+![image](https://github.com/user-attachments/assets/3558f0ea-7206-45aa-8674-44a99e5ea4c4)
+
 
