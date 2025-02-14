@@ -1,7 +1,6 @@
 package provider
 
 import (
-        "fmt"
         "os"
 	"io/ioutil"
 	"log"
@@ -36,7 +35,6 @@ func resourceLocalFile() *schema.Resource {
 
 func resourceCreateFile(ctx context.Context, d *schema.ResourceData, meta any) diag.Diagnostics {
 	//client := meta.(*FileConfig)
-	fmt.Println("Inside resourceCreateFile")
 
 	fileName := d.Get("file_name").(string)
 	content  := d.Get("file_content").(string)
@@ -51,20 +49,21 @@ func resourceCreateFile(ctx context.Context, d *schema.ResourceData, meta any) d
 
 	myfile.Sync()
 
+	d.SetId( "res-10" )
+
+	resourceReadFile( ctx, d, meta )
 	return nil 
 }
 
 func resourceReadFile(ctx context.Context, d *schema.ResourceData, meta any) diag.Diagnostics {
-//	client := meta.(*FileConfig)
-
 	fileName := d.Get("file_name").(string)
 
 	content, err := ioutil.ReadFile(fileName)
-	fmt.Println(content)
+
         if err != nil {
 		log.Fatal(err)
 	}
-	//d.Set("content") = content 
+	d.Set("content", content ) 
 
 	return nil 
 }
@@ -74,5 +73,12 @@ func resourceUpdateFile(ctx context.Context, d *schema.ResourceData, meta any) d
 }
 
 func resourceDeleteFile(ctx context.Context, d *schema.ResourceData, meta any) diag.Diagnostics {
+	fileName := d.Get("file_name").(string)
+	err := os.Remove(fileName) 
+
+	if err != nil {
+	   log.Fatal(err)
+	}
+
 	return nil 
 }

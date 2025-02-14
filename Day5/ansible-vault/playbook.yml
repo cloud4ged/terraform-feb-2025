@@ -1,0 +1,6 @@
+- name: Demonstrates retrieving vault protected sensitive data in playbook
+  hosts: localhost
+  vars_files:
+  - mysql-login-credentials.yml
+  tasks:
+  - debug: msg="username = {{username}}, password = {{password}}"
