@@ -119,5 +119,3 @@ Let's wait for the build to get triggered automatically
 ![image](https://github.com/user-attachments/assets/2e649190-2488-4dac-89ee-1c59eea6a083)
 ![image](https://github.com/user-attachments/assets/3a56ef3b-648e-4692-b079-2f631f33c22b)
 ![image](https://github.com/user-attachments/assets/1a293766-2069-4ce8-a13a-11002cafb2f8)
-
-
