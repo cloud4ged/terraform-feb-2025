@@ -46,6 +46,13 @@ Click on "Save and Finish"
 Click on "Start using Jenkins"
 ![image](https://github.com/user-attachments/assets/66bfb2df-f873-4d9f-8bb1-bb50bfc09b76)
 
+Click "Manage Jenkins" 
+![image](https://github.com/user-attachments/assets/fc21cfbc-91e5-4b42-ad0b-34144b4fed6e)
 
+Click "Plugins"
+![image](https://github.com/user-attachments/assets/1a34c552-11be-44cb-a762-545a4b078c6c)
+
+Click "Available Plugins"
+![image](https://github.com/user-attachments/assets/5b9d5f95-644b-4f61-b48a-438bed408f18)
 
 
