@@ -1,11 +1,14 @@
 #!/usr/bin/env groovy
 
 pipeline {
+    agent {
+        label 'built-in'
+    }
     stages {
         stage('Build Custom Docker Image') {
             steps {
                 script {
-		    dir("Day5/CustomDockerAnsibleNodeImages") {
+		    dir("Day5/CustomDockerAnsibleNodeImages/ubuntu-ansible") {
 		         sh "cp ~/.ssh/id_ed25519.pub authorized_keys"
 		         sh "docker build -t tektutor/ubuntu-ansible:1.0 ."
 			 sh "rm authorized_keys"

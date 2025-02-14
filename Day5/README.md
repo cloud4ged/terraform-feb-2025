@@ -176,3 +176,114 @@ Click "+" New view
 ![image](https://github.com/user-attachments/assets/60a8f78f-8da1-4c9d-9fb5-ca7b88caa68b)
 Click "Create" button
 ![image](https://github.com/user-attachments/assets/3031b94f-ab3a-4dbe-9d55-da1650dea462)
+
+## Lab - let's a declarative devops pipeline
+![image](https://github.com/user-attachments/assets/e3df7c83-3e3f-4c86-9890-e4016a37507e)
+![image](https://github.com/user-attachments/assets/0707c504-5d4e-411c-ba34-81ded4b02f64)
+Click "Ok"
+![image](https://github.com/user-attachments/assets/1948997e-c9cd-4a5d-bcc1-09dde64156bc)
+
+General
+![image](https://github.com/user-attachments/assets/75b5dca2-0064-49a3-bf8b-e161baca3cd4)
+
+Triggers
+![image](https://github.com/user-attachments/assets/aa81472d-e42c-483c-86e0-827ae18069ed)
+
+Pipeline
+![image](https://github.com/user-attachments/assets/5733945a-db2e-455b-b3f6-a763529cde10)
+![image](https://github.com/user-attachments/assets/38a358f8-993d-4ec7-9e42-f39dc97ada6e)
+![image](https://github.com/user-attachments/assets/b89fc7e9-9dc1-4a77-9528-5fc985e88149)
+
+Script Path
+![image](https://github.com/user-attachments/assets/32283b35-3ace-4c05-83ff-4c5588185843)
+
+Save
+![image](https://github.com/user-attachments/assets/30e2c23a-413f-44aa-a12b-b1b9fe8f5955)
+
+Build Progress
+![image](https://github.com/user-attachments/assets/d4bafe27-f26c-45a1-9cce-752544d2e038)
+![image](https://github.com/user-attachments/assets/805e08db-76b8-430c-9c90-a372218daa2a)
+![image](https://github.com/user-attachments/assets/5d49500d-31f0-49a5-94e0-335b46d978bd)
+![image](https://github.com/user-attachments/assets/82e010b1-19cb-4806-951e-1191531326e3)
+![image](https://github.com/user-attachments/assets/ffa90ed2-e81f-49da-8739-fd11178927ef)
+![image](https://github.com/user-attachments/assets/2fabe91f-57f4-4306-949d-bcbd2b6e8a94)
+![image](https://github.com/user-attachments/assets/15ded710-af8c-4bbd-aa30-47070ea52825)
+![image](https://github.com/user-attachments/assets/08805312-a0c9-4be9-b58e-744808df2fcd)
+![image](https://github.com/user-attachments/assets/cb317c28-5613-4cc3-9b19-dc28b92a823b)
+![image](https://github.com/user-attachments/assets/959ddf39-270c-4be1-af45-92eca785f77b)
+
+## Lab - Installing Hashicorp vault in Ubuntu
+```
+wget -O - https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt update && sudo apt install vault
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/6942466a-c79f-48da-9cb1-204adc071208)
+![image](https://github.com/user-attachments/assets/46a68126-9282-46d1-b6c8-5c8ce597e1e9)
+
+Starting the vault server
+```
+vault server -dev -dev-root-token-id root -dev-tls
+```
+
+Expected ouput
+![image](https://github.com/user-attachments/assets/16ae088a-c097-41d9-a9ad-18c876016b87)
+
+Accessing Hashicorp vault from chrome web browser
+<pre>
+https://localhost:8200  
+</pre>
+
+Expected output
+![image](https://github.com/user-attachments/assets/8fbdcdb7-df8b-43d4-aecf-6c8dcf26248e)
+
+Type 'root' as the token
+Expected output
+![image](https://github.com/user-attachments/assets/1f040d57-aede-4669-8b62-c9954f2cc26b)
+
+Now, you can clone the lab exercise from hashicorp portal
+```
+export VAULT_ADDR='https://127.0.0.1:8200'
+export VAULT_CACERT='/tmp/vault-tls232579030/vault-ca.pem'
+export VAULT_TOKEN=root
+
+cd ~
+git clone https://github.com/hashicorp-education/learn-vault-foundations.git
+cd learn-vault-foundations/terraform/oliver
+terraform init
+terraform apply --auto-approve
+terraform show
+```
+
+Next you can try the below
+```
+export VAULT_ADDR='https://127.0.0.1:8200'
+export VAULT_CACERT='/tmp/vault-tls232579030/vault-ca.pem'
+export VAULT_TOKEN=root
+
+cd ~/learn-vault-foundations/terraform/danielle
+terraform init
+terraform apply --auto-approve
+```
+
+When it prompts for password, you can type 'pass' without single quote.
+
+Expected output
+![image](https://github.com/user-attachments/assets/818d28ca-9245-429b-8825-ee5a4770218c)
+
+You could then check the secret from command line
+```
+vault read /dev-secrets/data/creds
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/c097cc45-90c3-4862-8077-1948e4a00060)
+
+You could clean once you are done with this exercise
+```
+unset VAULT_TOKEN
+unset VAULT_ADDR
+unset VAULT_CACERT
+```
