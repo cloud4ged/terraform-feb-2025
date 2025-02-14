@@ -1,9 +1,4 @@
-![image](https://github.com/user-attachments/assets/8d863e55-0a25-4069-a421-fe48d985bd4c)# Day 1
-
-## Please provide your first day feedback
-```
-https://survey.zohopublic.com/zs/xafPLk
-```
+# Day 1
 
 ## Info - Configuration Management Tool Overview
 <pre>
@@ -222,6 +217,9 @@ https://survey.zohopublic.com/zs/xafPLk
   - Fedora - uses rpm/yum/dnf package manager
   - RHEL - uses rpm/yum/dnf package manager
 </pre>
+
+## Info - Ansible High Level Architecture
+![ansible](AnsibleHighLevelArchitecture.png)
 
 ## Lab - Cloning TekTutor Training Repository ( one time activity )
 ```
