@@ -73,4 +73,12 @@ General section Description
 Under Source Code Managment, select "Git"
 ![image](https://github.com/user-attachments/assets/3558f0ea-7206-45aa-8674-44a99e5ea4c4)
 
+Triggers
+![image](https://github.com/user-attachments/assets/def35dbd-8b5f-4c02-afa7-074e3a10466e)
+Configure Jenkins to Poll GitHub repository every 2 minutes
+<pre>
+H/02 * * * *
+</pre>
+![image](https://github.com/user-attachments/assets/0463f0c1-5d9f-48be-b422-fc74f8c13aa8)
+
 
