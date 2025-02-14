@@ -85,3 +85,29 @@ Click "Save" to avoid loosing the changes done so far
 ![image](https://github.com/user-attachments/assets/c0ce0f97-0e38-4b6d-a514-ce2cc7eb9bd1)
 ![image](https://github.com/user-attachments/assets/d0bbc35d-ebc8-477e-a19b-9e2ac7a54d66)
 
+To continue with the Job configuration, click on Configure
+![image](https://github.com/user-attachments/assets/e445a7a4-f22d-4835-ad83-a6d87b735980)
+![image](https://github.com/user-attachments/assets/d3ca2c2a-93e5-403f-8ddc-82d2f5e9a50b)
+![image](https://github.com/user-attachments/assets/cda71edb-793b-4a55-a8ba-930bf500786d)
+![image](https://github.com/user-attachments/assets/ba5fd11f-63ea-449a-923e-d79bb2aefc86)
+![image](https://github.com/user-attachments/assets/159a5ac4-0ce7-42e7-9424-51ccfe5b9a67)
+
+Build Steps
+Click "Add Build Step"
+![image](https://github.com/user-attachments/assets/9d1899b0-ab22-4c0b-923a-099b54f096c7)
+Let's select "Execute shell"
+![image](https://github.com/user-attachments/assets/a8cb8df8-46e2-423d-acbd-84b67983ac21)
+Type the below commands
+<pre>
+cd Day5/invoking-ansibleplaybook-from-terraform
+terraform init
+terraform apply --auto-approve  
+</pre>
+![image](https://github.com/user-attachments/assets/74b20c1a-a8cf-4f1b-8028-998eeb685d92)
+
+Click "Save" button
+![image](https://github.com/user-attachments/assets/6ddcc2e8-9a88-40dc-96ad-5163ffb82e4f)
+![image](https://github.com/user-attachments/assets/98789a61-3033-483e-b235-9076024911b6)
+
+
+
