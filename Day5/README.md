@@ -81,4 +81,7 @@ H/02 * * * *
 </pre>
 ![image](https://github.com/user-attachments/assets/0463f0c1-5d9f-48be-b422-fc74f8c13aa8)
 
+Click "Save" to avoid loosing the changes done so far
+![image](https://github.com/user-attachments/assets/c0ce0f97-0e38-4b6d-a514-ce2cc7eb9bd1)
+![image](https://github.com/user-attachments/assets/d0bbc35d-ebc8-477e-a19b-9e2ac7a54d66)
 
