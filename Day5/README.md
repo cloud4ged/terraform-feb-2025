@@ -222,3 +222,37 @@ sudo apt update && sudo apt install vault
 Expected output
 ![image](https://github.com/user-attachments/assets/6942466a-c79f-48da-9cb1-204adc071208)
 ![image](https://github.com/user-attachments/assets/46a68126-9282-46d1-b6c8-5c8ce597e1e9)
+
+Starting the vault server
+```
+vault server -dev -dev-root-token-id root -dev-tls
+```
+
+Expected ouput
+![image](https://github.com/user-attachments/assets/16ae088a-c097-41d9-a9ad-18c876016b87)
+
+Accessing Hashicorp vault from chrome web browser
+<pre>
+https://localhost:8200  
+</pre>
+
+Expected output
+![image](https://github.com/user-attachments/assets/8fbdcdb7-df8b-43d4-aecf-6c8dcf26248e)
+
+Type 'root' as the token
+Expected output
+![image](https://github.com/user-attachments/assets/1f040d57-aede-4669-8b62-c9954f2cc26b)
+
+Now, you can clone the lab exercise from hashicorp portal
+```
+export VAULT_ADDR='https://127.0.0.1:8200'
+export VAULT_CACERT='/tmp/vault-tls232579030/vault-ca.pem'
+export VAULT_TOKEN=root
+
+cd ~
+git clone https://github.com/hashicorp-education/learn-vault-foundations.git
+cd learn-vault-foundations/terraform/oliver
+terraform init
+terraform apply --auto-approve
+terraform show
+```
