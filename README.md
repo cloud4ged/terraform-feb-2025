@@ -1,11 +1,18 @@
 # Terraform 10-14 Feb 2025 Batch
 
-## Kindly complete your pre-test ( Don't use the demo credentials )
+## My LinkedIn Profile
+https://www.linkedin.com/in/jeganathan-swaminathan-2a6a6a6/
+
+## My YouTube Channel
+https://www.youtube.com/@JeganathanSwaminathan/videos
+
+## My Blogs
 <pre>
-- Login to the RPS Cloud lab machine
-- In the cloud machine, you will find an excel sheet in the Ubuntu Desktop
-- With the login credentials shared in the excel sheet, proceed with the pre-test
-- Once you are done with the pre-test, kindly inform me so we know when to start the training
+https://medium.com/@jegan_50867/docker-overview-be840f727b3
+
+https://medium.com/tektutor/container-engine-vs-container-runtime-667a99042f3
+
+https://medium.com/@jegan_50867/docker-commands-ba19387383b4
 </pre>
 
 ## Info - Installing Ansible core in Ubuntu
