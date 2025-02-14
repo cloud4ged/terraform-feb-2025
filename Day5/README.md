@@ -109,5 +109,15 @@ Click "Save" button
 ![image](https://github.com/user-attachments/assets/6ddcc2e8-9a88-40dc-96ad-5163ffb82e4f)
 ![image](https://github.com/user-attachments/assets/98789a61-3033-483e-b235-9076024911b6)
 
+Click "Build Now"
+![image](https://github.com/user-attachments/assets/213478db-0199-4efe-9f74-19f4a3863714)
+![image](https://github.com/user-attachments/assets/54b45fe3-9ccf-4098-b45a-ec9b3354baaf)
+
+Let's wait for the build to get triggered automatically
+![image](https://github.com/user-attachments/assets/f1887101-b628-4e05-a203-866ffbfc8c31)
+![image](https://github.com/user-attachments/assets/25a09248-9987-4001-bceb-7fa0d2e5be09)
+![image](https://github.com/user-attachments/assets/2e649190-2488-4dac-89ee-1c59eea6a083)
+![image](https://github.com/user-attachments/assets/3a56ef3b-648e-4692-b079-2f631f33c22b)
+![image](https://github.com/user-attachments/assets/1a293766-2069-4ce8-a13a-11002cafb2f8)
 
 
