@@ -22,3 +22,6 @@ http://localhost:8080
 Expected output
 ![image](https://github.com/user-attachments/assets/87625aae-995f-44be-8926-8912760ce3f6)
 
+You can copy/paste the url to copy the one time admin password in the web browser
+![image](https://github.com/user-attachments/assets/5c721468-7464-4bc4-9bf7-5921e3e602fd)
+
