@@ -176,3 +176,30 @@ Click "+" New view
 ![image](https://github.com/user-attachments/assets/60a8f78f-8da1-4c9d-9fb5-ca7b88caa68b)
 Click "Create" button
 ![image](https://github.com/user-attachments/assets/3031b94f-ab3a-4dbe-9d55-da1650dea462)
+
+## Lab - let's a declarative devops pipeline
+![image](https://github.com/user-attachments/assets/e3df7c83-3e3f-4c86-9890-e4016a37507e)
+![image](https://github.com/user-attachments/assets/0707c504-5d4e-411c-ba34-81ded4b02f64)
+Click "Ok"
+![image](https://github.com/user-attachments/assets/1948997e-c9cd-4a5d-bcc1-09dde64156bc)
+
+General
+![image](https://github.com/user-attachments/assets/75b5dca2-0064-49a3-bf8b-e161baca3cd4)
+
+Triggers
+![image](https://github.com/user-attachments/assets/aa81472d-e42c-483c-86e0-827ae18069ed)
+
+Pipeline
+![image](https://github.com/user-attachments/assets/5733945a-db2e-455b-b3f6-a763529cde10)
+![image](https://github.com/user-attachments/assets/38a358f8-993d-4ec7-9e42-f39dc97ada6e)
+![image](https://github.com/user-attachments/assets/b89fc7e9-9dc1-4a77-9528-5fc985e88149)
+
+Script Path
+![image](https://github.com/user-attachments/assets/32283b35-3ace-4c05-83ff-4c5588185843)
+
+Save
+![image](https://github.com/user-attachments/assets/30e2c23a-413f-44aa-a12b-b1b9fe8f5955)
+
+Build Progress
+![image](https://github.com/user-attachments/assets/d4bafe27-f26c-45a1-9cce-752544d2e038)
+
