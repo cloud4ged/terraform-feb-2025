@@ -1,5 +1,10 @@
 # Day 5
 
+## Please find your feedback here ( Try accessing this from RPS cloud machine )
+<pre>
+https://survey.zohopublic.com/zs/bkC4XL  
+</pre>
+
 ## Lab - Download jenkins and launching it on the RPS Lab machine
 
 Download the jenkins.war LTS from jenkins.io/download page
