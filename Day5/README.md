@@ -256,3 +256,27 @@ terraform init
 terraform apply --auto-approve
 terraform show
 ```
+
+Next you can try the below
+```
+export VAULT_ADDR='https://127.0.0.1:8200'
+export VAULT_CACERT='/tmp/vault-tls232579030/vault-ca.pem'
+export VAULT_TOKEN=root
+
+cd ~/learn-vault-foundations/terraform/danielle
+terraform init
+terraform apply --auto-approve
+```
+
+When it prompts for password, you can type 'pass' without single quote.
+
+Expected output
+![image](https://github.com/user-attachments/assets/818d28ca-9245-429b-8825-ee5a4770218c)
+
+You could then check the secret from command line
+```
+vault read /dev-secrets/data/creds
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/c097cc45-90c3-4862-8077-1948e4a00060)
