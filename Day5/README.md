@@ -147,6 +147,14 @@ Build Steps
 ![image](https://github.com/user-attachments/assets/b67731a2-af32-4305-91ef-408717a31978)
 ![image](https://github.com/user-attachments/assets/52b6b4d0-3055-4641-90f4-acf7322d0fe0)
 Select "Execute shell"
+Type the below commands
+<pre>
+cd Day5/CustomDockerAnsibleNodeImages/ubuntu-ansible
+cp ~/.ssh/id_ed25519.pub authorized_keys
+docker build -t tektutor/ubuntu-ansible:1.0 .
+rm authorized_keys
+docker images
+</pre>
 ![image](https://github.com/user-attachments/assets/305ac7b3-5a30-4bd5-b343-994203a33543)
 ![image](https://github.com/user-attachments/assets/c6209c4f-3a81-4028-8689-ccfff5e6a120)
 Click "Save" button
@@ -155,3 +163,7 @@ Click "Save" button
 
 
 Buid Progress
+![image](https://github.com/user-attachments/assets/21ffe510-6607-4312-89ec-454a90f97963)
+![image](https://github.com/user-attachments/assets/53bd7e2b-d4fe-4aa5-95f8-4e7833b873ad)
+![image](https://github.com/user-attachments/assets/de2fbab2-23ac-4509-8e71-f34004d72f93)
+![image](https://github.com/user-attachments/assets/6540f030-63c0-45f5-89e3-b733a68df638)
