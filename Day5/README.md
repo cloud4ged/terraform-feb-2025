@@ -167,3 +167,12 @@ Buid Progress
 ![image](https://github.com/user-attachments/assets/53bd7e2b-d4fe-4aa5-95f8-4e7833b873ad)
 ![image](https://github.com/user-attachments/assets/de2fbab2-23ac-4509-8e71-f34004d72f93)
 ![image](https://github.com/user-attachments/assets/6540f030-63c0-45f5-89e3-b733a68df638)
+
+## Lab - Let's create a CI/CD Pipeline with the 2 Jenkins Jobs we created
+![image](https://github.com/user-attachments/assets/9ba5e16b-2389-4b1b-bd48-4f3f1e1c20b6)
+Click "+" New view
+![image](https://github.com/user-attachments/assets/a891012f-4fe9-4c0c-803a-e6565a46e3e5)
+![image](https://github.com/user-attachments/assets/342d72cd-d6e8-4325-8fb0-bc1885310960)
+![image](https://github.com/user-attachments/assets/60a8f78f-8da1-4c9d-9fb5-ca7b88caa68b)
+Click "Create" button
+![image](https://github.com/user-attachments/assets/3031b94f-ab3a-4dbe-9d55-da1650dea462)
