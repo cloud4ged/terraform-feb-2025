@@ -280,3 +280,10 @@ vault read /dev-secrets/data/creds
 
 Expected output
 ![image](https://github.com/user-attachments/assets/c097cc45-90c3-4862-8077-1948e4a00060)
+
+You could clean once you are done with this exercise
+```
+unset VAULT_TOKEN
+unset VAULT_ADDR
+unset VAULT_CACERT
+```
