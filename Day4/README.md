@@ -1,5 +1,21 @@
 # Day 4
 
+## Info - Terraform Provider
+<pre>
+- Terraform depends on providers to do the provisioning on different environments
+- For example
+  - aws terraform provider helps us provision aws resources in AWS public cloud
+  - azure terraform provider helps us provision azure resources in Azure public cloud
+  - docker terraform provider helps us provision containers and manage docker images
+- While Terraform comes with many providers, in rare scenarios we may have to develop our own provider
+- Let's say you have to manage your proprietary infrastructures and softwares in onprem environments, you may not find
+  readily available providers fot the same, you may have to develop your own provider in these kind of scenarios
+- As Terraform is developed in Golang, the terraform provider also has to be developed in golang
+- Terraform older versions supported a SDK to develop the provider, which is deprecated in favour of latest Terraform plugin framework
+- The latest version of Terraform only supports providers developed using the new framework
+- The folder structure followed by these provider frameworks are entirely different as well
+</pre>
+
 ## Lab - Develop a custom Terraform provider that manages local file
 
 We need to follow a specific folder structure as recommended by the latest Terraform Provider Plugin developemnt framework
