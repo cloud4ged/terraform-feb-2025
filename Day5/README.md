@@ -212,3 +212,13 @@ Build Progress
 ![image](https://github.com/user-attachments/assets/cb317c28-5613-4cc3-9b19-dc28b92a823b)
 ![image](https://github.com/user-attachments/assets/959ddf39-270c-4be1-af45-92eca785f77b)
 
+## Lab - Installing Hashicorp vault in Ubuntu
+```
+wget -O - https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt update && sudo apt install vault
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/6942466a-c79f-48da-9cb1-204adc071208)
+![image](https://github.com/user-attachments/assets/46a68126-9282-46d1-b6c8-5c8ce597e1e9)
