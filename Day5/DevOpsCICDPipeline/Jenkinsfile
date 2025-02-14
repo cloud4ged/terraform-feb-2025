@@ -1,6 +1,9 @@
 #!/usr/bin/env groovy
 
 pipeline {
+    agent {
+        label 'Built-In Node'
+    }
     stages {
         stage('Build Custom Docker Image') {
             steps {
